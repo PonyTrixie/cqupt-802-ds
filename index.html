@@ -2,7 +2,8 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1e2f74">
 <meta name="robots" content="noindex, nofollow">
 <title>重邮 802《数据结构》历年真题  题型分类 + 答案总览（20122025）</title>
 <style>
@@ -11,6 +12,8 @@
   --line:#e3e8f2;--brand:#2f5bea;--brand-d:#1e3fb5;--brand-l:#eaf0ff;--ok:#10b981;--warn:#f59e0b;
 }
 *{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+button{-webkit-tap-highlight-color:transparent}
 body{margin:0;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.7;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
 a{color:var(--brand);text-decoration:none}
@@ -26,14 +29,14 @@ h1 small{display:block;font-size:13.5px;font-weight:400;opacity:.85;margin-top:7
 .kpi .l{font-size:12.5px;opacity:.82}
 main{margin-top:-60px;position:relative;z-index:3;padding-bottom:70px}
 .card{background:var(--card);border-radius:14px;box-shadow:0 1px 2px rgba(20,30,60,.05),0 8px 24px rgba(20,30,60,.06);padding:20px 22px;margin-bottom:16px}
-.tabs{display:flex;gap:5px;background:#e8ecf7;padding:5px;border-radius:12px;margin-bottom:16px;overflow-x:auto}
+.tabs{display:flex;gap:5px;background:#e8ecf7;padding:5px;border-radius:12px;margin-bottom:16px;overflow-x:auto;position:sticky;top:8px;z-index:30;box-shadow:0 6px 16px rgba(20,30,60,.05)}
 .tabs button{flex:0 0 auto;border:0;background:transparent;padding:9px 17px;border-radius:9px;cursor:pointer;font-size:14px;font-weight:600;color:var(--ink2);font-family:inherit;white-space:nowrap}
 .tabs button.on{background:#fff;color:var(--brand);box-shadow:0 1px 3px rgba(20,30,60,.12)}
 .panel{display:none}.panel.on{display:block}
 .layout{display:grid;grid-template-columns:250px 1fr;gap:16px;align-items:start}
 @media(max-width:900px){.layout{grid-template-columns:1fr}}
 /* 侧栏分类树 */
-.tree{position:sticky;top:14px;max-height:calc(100vh - 40px);overflow:auto}
+.tree{position:sticky;top:66px;max-height:calc(100vh - 82px);overflow:auto}
 .tree h3{margin:0 0 10px;font-size:13px;color:var(--ink3);font-weight:600;letter-spacing:.4px}
 .chap{margin-bottom:7px}
 .chaphead{display:flex;align-items:center;gap:7px;padding:7px 9px;border-radius:9px;cursor:pointer;font-size:13.5px;font-weight:600;transition:.15s;border:1px solid transparent}
@@ -110,6 +113,134 @@ tbody tr:hover{background:#f8faff}
 h2.sec{font-size:17px;margin:0 0 5px}
 p.sub{margin:0 0 14px;color:var(--ink2);font-size:13.2px}
 footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38px;line-height:1.9}
+
+/* ---------- 表格横向滚动 + 首列吸附 ---------- */
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain}
+.tblwrap th:first-child,.tblwrap td.tl:first-child{position:sticky;left:0;z-index:2;background:#fff}
+.tblwrap thead th:first-child{background:#f7f9fd;z-index:3}
+.tblwrap tbody tr:hover td.tl:first-child{background:#f8faff}
+.scrollhint{display:none;font-size:11.5px;color:var(--ink3);margin:0 0 6px}
+
+/* ---------- 移动端专用控件（桌面隐藏） ---------- */
+.tree-fab,.tree-backdrop,.tree-close,.taxocards,.to-top{display:none}
+.only-mob{display:none}
+
+/* ================= 移动端适配（≤900px） ================= */
+@media(max-width:900px){
+  /* 头部压缩：原来吃掉半屏 */
+  .wrap{padding:0 12px}
+  header{padding:18px 0 56px}
+  .badge{font-size:11px;padding:3px 10px}
+  h1{font-size:20.5px;margin:9px 0 4px;line-height:1.36}
+  h1 small{font-size:12.2px;margin-top:5px}
+  .kpis{gap:13px 18px;margin-top:15px}
+  .kpi .n{font-size:19px}
+  .kpi .l{font-size:11.3px}
+  main{margin-top:-40px;padding-bottom:0}
+
+  /* 顶部 tab：全宽吸顶 + 换行，5 个都看得见 */
+  .tabs{flex-wrap:wrap;gap:4px;border-radius:0;margin:0 -12px 12px;padding:6px 12px;top:0;
+        box-shadow:0 6px 14px rgba(20,30,60,.08)}
+  .tabs button{flex:1 1 calc(33% - 3px);padding:9px 6px;font-size:12.6px;border-radius:8px}
+
+  /* 卡片 / 正文密度 */
+  .card{padding:14px 13px;border-radius:12px}
+  .item{padding:9px 6px}
+  .item .no{flex:0 0 24px;height:21px;line-height:21px;font-size:11px}
+  details.ans{margin:7px 0 0}
+  details.ans>summary{font-size:12.4px;padding:8px 11px}
+  details.ans .body{font-size:13.1px;padding:4px 11px 11px}
+  .ytitle{flex-wrap:wrap;gap:3px 8px}
+  .ytitle .y{font-size:16.5px}
+  .ytitle .meta{flex:1 1 100%;font-size:11.5px;line-height:1.55}
+  .secname{margin:12px 0 6px}
+
+  /* 筛选区：输入 16px 防止 iOS 聚焦自动放大 */
+  .filters{gap:8px}
+  .filters select{flex:1 1 0;min-width:0;font-size:16px}
+  .filters input[type=search]{flex:1 1 100%;min-width:0;font-size:16px}
+  .filters .btn{flex:1 1 calc(50% - 4px);font-size:13.5px;padding:10px 8px}
+  .secchips{gap:6px;margin:10px 0 4px}
+  .chip{padding:7px 12px;font-size:12.2px}
+  .resultbar{font-size:12.6px;margin:9px 0 10px}
+
+  /* 侧栏分类树 → 底部抽屉 */
+  #tree{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:70;margin:0;max-height:74vh;
+        overflow:auto;overscroll-behavior:contain;border-radius:16px 16px 0 0;
+        padding:0 14px calc(20px + env(safe-area-inset-bottom));
+        transform:translateY(102%);visibility:hidden;box-shadow:0 -8px 30px rgba(15,25,55,.24);
+        transition:transform .26s cubic-bezier(.4,0,.2,1),visibility .26s}
+  body.tree-open #tree{transform:none;visibility:visible}
+  body.tree-open{overflow:hidden;overscroll-behavior:contain}
+  #tree h3{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;
+        background:#fff;font-size:13.5px;padding:15px 0 9px;margin:0 0 6px;border-radius:16px 16px 0 0}
+  .tree-close{display:flex;align-items:center;justify-content:center;width:30px;height:30px;flex:0 0 auto;
+        border:0;border-radius:9px;background:#eef2fb;color:var(--ink2);font-size:14px;font-family:inherit;cursor:pointer}
+  #tree .chaphead{padding:11px 9px;font-size:14px}
+  #tree .subs button{padding:10px 8px;font-size:13px}
+  .tree-backdrop{display:block;position:fixed;inset:0;z-index:65;background:rgba(16,22,40,.44);
+        opacity:0;pointer-events:none;transition:opacity .26s}
+  body.tree-open .tree-backdrop{opacity:1;pointer-events:auto}
+
+  /* 底部「章节筛选」胶囊 */
+  .tree-fab{display:flex;align-items:center;gap:8px;position:fixed;z-index:50;
+        left:12px;right:12px;bottom:calc(11px + env(safe-area-inset-bottom));
+        border:0;border-radius:999px;padding:12px 16px;font-family:inherit;font-size:13.8px;font-weight:600;
+        color:#fff;background:linear-gradient(135deg,#2f5bea,#1e3fb5);
+        box-shadow:0 8px 22px rgba(47,91,234,.34);cursor:pointer}
+  .tree-fab .ic{flex:0 0 auto;opacity:.9}
+  .tree-fab .tt{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:left}
+  .tree-fab .clr{flex:0 0 auto;font-weight:400;font-size:12.3px;opacity:.95;
+        border-left:1px solid rgba(255,255,255,.38);padding-left:9px}
+
+  /* 热度条换行显示 */
+  .freq{flex-wrap:wrap;gap:3px 10px;margin-bottom:13px}
+  .freq .lb{flex:0 0 100%;font-size:13px}
+  .freq .vl{flex:0 0 46px}
+
+  /* 表格提示 + 其它 */
+  .scrollhint{display:block}
+  /* 矩阵表列多，必须给足宽度靠横向滚动，否则首列会被压成竖排单字 */
+  #matrix{min-width:820px}
+  #matrixFine{min-width:880px}
+  #matrix th:first-child,#matrixFine th:first-child{min-width:92px}
+
+  /* 三级分类：手机上用卡片替代表格 */
+  .tblwrap.taxo,.scrollhint.taxo{display:none}
+  .taxocards{display:block}
+  .taxocard{border:1px solid var(--line);border-radius:12px;padding:12px 13px;margin-bottom:11px;background:#fdfdff}
+  .tc-sec{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13.5px;font-weight:700;
+        color:var(--brand-d);background:var(--brand-l);border-radius:8px;padding:8px 11px;margin-bottom:9px}
+  .tc-sec i{font-style:normal;font-size:11.5px;font-weight:400;opacity:.85}
+  .tc-ch{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;margin:10px 0 2px}
+  .tc-ch .dot{display:inline-block}
+  .tc-ch i{margin-left:auto;font-style:normal;font-size:11.5px;color:var(--ink3);font-weight:400}
+  .tc-fines{margin:0;padding-left:16px;list-style:none}
+  .tc-fines li{display:flex;align-items:baseline;gap:8px;font-size:12.9px;color:var(--ink2);
+        padding:5px 0;border-bottom:1px dashed var(--line)}
+  .tc-fines li:last-child{border-bottom:0}
+  .tc-fines li b{margin-left:auto;color:var(--brand);font-size:12.5px;flex:0 0 auto}
+
+  /* 回到顶部（111k px 的长页面） */
+  .to-top{display:flex;align-items:center;justify-content:center;position:fixed;z-index:51;
+        right:12px;bottom:calc(66px + env(safe-area-inset-bottom));width:44px;height:44px;
+        border:0;border-radius:50%;background:#fff;color:var(--brand);font-size:19px;line-height:1;
+        font-family:inherit;cursor:pointer;box-shadow:0 5px 16px rgba(20,30,60,.22);
+        opacity:0;pointer-events:none;transition:opacity .2s}
+  body.scrolled .to-top{opacity:1;pointer-events:auto}
+
+  /* 说明文案按设备切换 */
+  .only-desk{display:none}
+  .only-mob{display:inline}
+
+  th,td{padding:7px 8px}
+  table{font-size:12.8px}
+  .grid2{grid-template-columns:1fr}
+  .mini{padding:12px 13px}
+  h2.sec{font-size:16px}
+  p.sub{font-size:12.8px}
+  footer{padding:20px 0 96px}
+}
 </style>
 </head>
 <body>
@@ -135,7 +266,7 @@ footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38
   <!-- ============ 真题 + 答案 ============ -->
   <section class="panel on" id="p-list">
     <div class="layout">
-      <div class="card tree" id="tree"><h3>按章节 / 考点筛选</h3><div id="treebody"></div></div>
+      <div class="card tree" id="tree"><h3>按章节 / 考点筛选<button class="tree-close" id="treeClose" aria-label="关闭筛选面板">✕</button></h3><div id="treebody"></div></div>
       <div>
         <div class="card">
           <div class="filters">
@@ -153,6 +284,13 @@ footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38
         </div>
       </div>
     </div>
+    <button class="tree-fab" id="treeFab" aria-label="按章节筛选">
+      <span class="ic">📚</span>
+      <span class="tt" id="treeFabText">按章节 / 考点筛选</span>
+      <span class="clr" id="treeFabClear" hidden>清除</span>
+    </button>
+    <div class="tree-backdrop" id="treeBackdrop"></div>
+    <button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
   </section>
 
   <!-- ============ 三级分类 ============ -->
@@ -160,7 +298,9 @@ footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38
     <div class="card">
       <h2 class="sec">题型三级分类总表</h2>
       <p class="sub">第一级＝试卷题型（选择题 / 填空题 / 程序阅读题 / 综合应用题 / 算法设计题 ）；第二级＝知识章节；第三级＝具体考点。数字为该考点的真题出现次数。</p>
-      <div style="overflow-x:auto"><table id="taxoTable" style="min-width:640px"></table></div>
+      <div class="scrollhint taxo">← 表格可左右滑动查看</div>
+      <div class="tblwrap taxo"><table id="taxoTable" style="min-width:700px"></table></div>
+      <div class="taxocards" id="taxoCards"></div>
     </div>
     <div class="card">
       <h2 class="sec">考点热度（全部 511 道小题）</h2>
@@ -174,12 +314,14 @@ footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38
     <div class="card">
       <h2 class="sec">考点  年份 出题矩阵</h2>
       <p class="sub">行＝知识章节，列＝年份；数字为该年该章的题目数。用于判断「哪一章年年考」。</p>
-      <div style="overflow-x:auto"><table id="matrix"></table></div>
+      <div class="scrollhint">← 表格可左右滑动查看，左侧章节列已吸附</div>
+      <div class="tblwrap"><table id="matrix"></table></div>
     </div>
     <div class="card">
       <h2 class="sec">具体考点  年份（热度前 22）</h2>
       <p class="sub">细到「哈夫曼编码」「循环队列」「Dijkstra」这一级，看它们在十几年间的重复规律。</p>
-      <div style="overflow-x:auto"><table id="matrixFine"></table></div>
+      <div class="scrollhint">← 表格可左右滑动查看，左侧考点列已吸附</div>
+      <div class="tblwrap"><table id="matrixFine"></table></div>
     </div>
   </section>
 
@@ -261,18 +403,31 @@ $("#treebody").innerHTML = CHS.map(ch=>{
     <div class="subs">${subs.map(([k,v])=>`<button data-fine="${esc(k)}">${esc(k)}<span class="c">${v}</span></button>`).join("")}</div>
   </div>`;
 }).join("");
+/* 移动端：分类树作为底部抽屉 */
+function openTree(){ document.body.classList.add("tree-open"); }
+function closeTree(){ document.body.classList.remove("tree-open"); }
+function scrollToList(){
+  if(window.innerWidth>900) return;
+  const a=$("#p-list .filters")||$("#list");
+  const y=a.getBoundingClientRect().top+window.scrollY-74;
+  window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
+}
 $("#treebody").addEventListener("click", e=>{
   const h = e.target.closest(".chaphead"), b = e.target.closest(".subs button");
   if(b){
-    const fine = b.dataset.fine;
-    if(selFine===fine && selChap===b.closest(".chap").dataset.ch){ selFine=null; selChap=null; }
-    else { selFine=fine; selChap=b.closest(".chap").dataset.ch; }
+    const chap = b.closest(".chap").dataset.ch, fine = b.dataset.fine;
+    const wasOn = (selFine===fine && selChap===chap);
+    if(wasOn){ selFine=null; selChap=null; }
+    else { selFine=fine; selChap=chap; }
     syncTree(); render();
+    if(!wasOn){ closeTree(); scrollToList(); }   // 手机上选完考点就收起抽屉、回到题目
   } else if(h){
     const ch = h.parentElement.dataset.ch;
-    if(selChap===ch && !selFine){ selChap=null; selFine=null; }
+    const wasOn = (selChap===ch && !selFine);
+    if(wasOn){ selChap=null; selFine=null; }
     else { selChap=ch; selFine=null; }
     syncTree(); render();
+    if(wasOn) closeTree();                        // 取消选中时收起；选中章时保持展开好继续点考点
   }
 });
 function syncTree(){
@@ -282,7 +437,31 @@ function syncTree(){
     c.querySelector(".chaphead").classList.toggle("on", selChap===ch && !selFine);
     c.querySelectorAll(".subs button").forEach(b=>b.classList.toggle("on", selChap===ch && selFine===b.dataset.fine));
   });
+  const t=$("#treeFabText"), clr=$("#treeFabClear");
+  if(t){
+    t.textContent = selFine ? (selChap+" · "+selFine) : (selChap || "按章节 / 考点筛选");
+    clr.hidden = !(selChap||selFine);
+  }
 }
+(function(){
+  const fab=$("#treeFab"), bd=$("#treeBackdrop"), tc=$("#treeClose"), clr=$("#treeFabClear");
+  if(!fab) return;
+  fab.addEventListener("click", e=>{ if(e.target===clr) return; document.body.classList.toggle("tree-open"); });
+  clr.addEventListener("click", e=>{ e.stopPropagation(); selChap=null; selFine=null; syncTree(); render(); });
+  bd.addEventListener("click", closeTree);
+  tc.addEventListener("click", closeTree);
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeTree(); });
+})();
+/* 回到顶部按钮：滚过一屏才出现 */
+(function(){
+  const b=$("#toTop"); if(!b) return;
+  b.addEventListener("click", ()=>window.scrollTo({top:0,behavior:"smooth"}));
+  let raf=0;
+  window.addEventListener("scroll", ()=>{
+    if(raf) return;
+    raf=requestAnimationFrame(()=>{ raf=0; document.body.classList.toggle("scrolled", window.scrollY>900); });
+  }, {passive:true});
+})();
 
 /* ---------- 题型 chips ---------- */
 let secList = SECS.filter(s=>["选择题","单项选择题"].includes(s)).length ? ["选择题","填空题","程序阅读题","问答题","综合应用题","算法应用","算法设计题"] : SECS;
@@ -404,6 +583,24 @@ $("#list").addEventListener("click",e=>{const t=e.target.closest(".ytitle");if(t
   });
   h+="</tbody>";
   $("#taxoTable").innerHTML="<tbody>"+h+"</tbody>";
+
+  // 手机端用卡片替代表格（表格的 rowspan 在窄屏会被压成空白列）
+  let c="";
+  SECS.forEach(sec=>{
+    const items=FLAT.filter(x=>x.sec===sec);
+    if(!items.length) return;
+    const byCh={};
+    items.forEach(x=>{ byCh[x.ch]=byCh[x.ch]||{}; byCh[x.ch][x.fine]=(byCh[x.ch][x.fine]||0)+1; });
+    c+=`<div class="taxocard"><div class="tc-sec">${esc(SECNORM(sec))}<i>${items.length} 题</i></div>`;
+    Object.entries(byCh).sort((a,b)=>Object.values(b[1]).reduce((x,y)=>x+y,0)-Object.values(a[1]).reduce((x,y)=>x+y,0)).forEach(([ch,fs])=>{
+      const rows=Object.entries(fs).sort((a,b)=>b[1]-a[1]);
+      c+=`<div class="tc-ch"><span class="dot" style="background:${CH_COLOR[ch]}"></span>${esc(ch)}<i>${rows.reduce((x,y)=>x+y[1],0)} 题</i></div><ul class="tc-fines">`;
+      rows.forEach(([fine,cnt])=>{ c+=`<li>${esc(fine)}<b>${cnt}</b></li>`; });
+      c+="</ul>";
+    });
+    c+="</div>";
+  });
+  const tcEl=$("#taxoCards"); if(tcEl) tcEl.innerHTML=c;
 })();
 
 /* ---------- 考点热度 ---------- */
@@ -485,7 +682,7 @@ $("#tipsBox").innerHTML=`
     <li>全部 511 道小题<b>均附答案条目</b>，其中涉及图形/表格数据的题会在解析里提示依图确定。</li>
   </ul></div>
   <div class="mini"><h4> 怎么用这份资料</h4><ul>
-    <li>左侧分类树点选「章  考点」，即可<b>横向刷同类题</b>（例如把 14 年的哈夫曼题一次刷完）。</li>
+    <li><span class="only-desk">左侧分类树点选</span><span class="only-mob">点底部「📚 按章节 / 考点筛选」按钮，选</span>「章  考点」，即可<b>横向刷同类题</b>（例如把 14 年的哈夫曼题一次刷完）。</li>
     <li>先自己做，再点开「参考答案」对答案、看解析思路。</li>
     <li>「只看有答案」可过滤；「展开全部答案」适合快速浏览回顾。</li>
     <li>按年份纵向成套限时训练时，用年份下拉框锁定单年。</li>

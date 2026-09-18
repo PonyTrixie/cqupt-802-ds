@@ -241,13 +241,160 @@ footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38
   p.sub{font-size:12.8px}
   footer{padding:20px 0 96px}
 }
+/* ==================================================================
+   新增：代码题 / 普通题 双维度视图
+   （由 802_build/build.py 注入到 style 结束标签之前）
+   ================================================================== */
+
+/* ---------- 通用小控件 ---------- */
+.qcard{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 16px;margin-bottom:13px;
+  box-shadow:0 1px 2px rgba(20,30,60,.04);transition:.15s}
+.qcard:hover{border-color:#cfdcf5;box-shadow:0 6px 18px rgba(20,30,60,.07)}
+.qhead{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+.qid{font-size:12.3px;font-weight:700;color:var(--brand-d);background:var(--brand-l);border-radius:7px;padding:3px 9px}
+.qtag{font-size:11.3px;border-radius:6px;padding:2px 7px;background:#eef2fb;color:var(--ink2);white-space:nowrap}
+.qtag.sec{background:#fff7ed;color:#c2410c}
+.qtag.score{background:#f0fdf4;color:#15803d}
+.qtag.year{background:#f4f0ff;color:#6d28d9}
+.qstem{font-size:13.7px;line-height:1.78;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.qstem .lead{color:var(--brand-d);font-weight:600}
+.qpoint{margin-top:9px;font-size:12.7px;color:#7c5311;background:#fffaf0;border:1px dashed #f0dcb4;
+  border-radius:8px;padding:6px 10px;line-height:1.6}
+.qpoint b{color:#a16207;margin-right:7px}
+
+/* ---------- 代码块 ---------- */
+.codebox{margin-top:10px;border-radius:11px;overflow:hidden;background:#1b2437;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.codebar{display:flex;align-items:center;gap:8px;padding:6px 11px;background:#161e2e;
+  border-bottom:1px solid rgba(255,255,255,.07)}
+.codebar .lang{font-size:10.8px;font-weight:700;letter-spacing:.5px;color:#93c5fd;
+  background:rgba(147,197,253,.12);border-radius:5px;padding:2px 7px}
+.codebar .cnote{font-size:11.3px;color:#94a3b8}
+.codebar .hint{margin-left:auto;font-size:11px;color:#7c8aa3}
+.codebox pre.code{margin:0;padding:12px 14px;overflow-x:auto;-webkit-overflow-scrolling:touch;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono","Courier New",monospace;
+  font-size:12.7px;line-height:1.68;color:#e3ebf7;tab-size:4;white-space:pre;background:transparent}
+.codebox pre.code::-webkit-scrollbar{height:8px}
+.codebox pre.code::-webkit-scrollbar-thumb{background:#3b4a63;border-radius:8px}
+.codebox pre.code code{font-family:inherit;white-space:pre}
+.t-kw{color:#7cc4ff;font-weight:600}
+.t-typ{color:#7ee0c0}
+.t-str{color:#f7a3a3}
+.t-cmt{color:#7a8aa3;font-style:italic}
+.t-num{color:#f5cf7a}
+.t-fn{color:#d9c2ff}
+mark.blank{background:#fde68a;color:#4a3608;border-radius:4px;padding:0 3px;font-weight:700;
+  box-shadow:inset 0 -2px 0 #d1a30b}
+
+/* ---------- 知识点索引（代码题页顶部） ---------- */
+.tgroup{margin-bottom:11px}
+.tgroup h4{margin:0 0 7px;font-size:12.6px;color:var(--ink3);font-weight:700;letter-spacing:.3px;
+  display:flex;align-items:center;gap:7px}
+.tgroup h4 .dot{width:9px;height:9px;border-radius:50%}
+.tagbtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:4px 11px;font-size:12.4px;
+  color:var(--ink2);font-family:inherit;cursor:pointer;margin:0 6px 6px 0;transition:.13s;line-height:1.5}
+.tagbtn:hover{border-color:#bccbe8;color:var(--ink);background:#f7faff}
+.tagbtn.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+.tagbtn i{font-style:normal;font-size:11px;opacity:.72;margin-left:4px}
+.tagbtn.sm{padding:2px 9px;font-size:11.8px;margin:0 5px 5px 0;background:#f7f9fd}
+.tagbtn.sm.on{background:var(--brand);color:#fff}
+.codefiles{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:6px;
+  padding-top:9px;border-top:1px dashed var(--line);font-size:12.6px;color:var(--ink2)}
+.codefiles .cur{font-weight:600;color:var(--brand-d)}
+
+/* ---------- 代码题卡片 ---------- */
+.qfoot{margin-top:10px;display:flex;align-items:flex-start;gap:7px;flex-wrap:wrap;
+  padding-top:9px;border-top:1px dashed var(--line)}
+.klabel{font-size:11.5px;font-weight:700;color:var(--ink3);padding-top:5px;flex:0 0 auto}
+
+/* ---------- 普通题：方法总表 ---------- */
+.mtable td.num{font-weight:700;color:var(--brand)}
+.mhint{margin:0 0 9px;font-size:12.4px;color:var(--ink3)}
+.mtable td.mbar-cell{text-align:left}
+.mtable td.mname{font-weight:600;color:var(--ink);text-align:left;white-space:nowrap}
+.mtable td.mdesc{text-align:left;color:var(--ink2);font-size:12.6px}
+.mtable td.myear{color:var(--ink2);font-size:12.3px}
+.mbar{display:inline-block;height:7px;border-radius:99px;background:var(--brand);vertical-align:middle;
+  margin-right:6px;min-width:4px}
+
+/* ---------- 普通题：方法分组卡片 ---------- */
+.mgroup{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:12px;
+  padding:13px 15px;margin-bottom:13px;box-shadow:0 1px 2px rgba(20,30,60,.04)}
+.mhead{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.mtitle{font-size:15px;font-weight:700}
+.mtitle i{font-style:normal;font-size:12px;font-weight:400;color:var(--ink3);margin-left:5px}
+/* 代码块下方的来源说明 */
+.codenote{padding:6px 12px 7px;background:#161e2e;color:#8ea2bd;font-size:11.4px;line-height:1.6;
+  border-top:1px solid rgba(255,255,255,.07)}
+.codenote::before{content:"ⓘ ";color:#7cc4ff;font-weight:700}
+.myears{margin-left:auto;font-size:11.6px;color:var(--ink3)}
+.mdesc{font-size:12.7px;color:var(--ink2);margin:5px 0 9px;line-height:1.65}
+.mlist{border-top:1px dashed var(--line);padding-top:4px}
+details.q{border-bottom:1px dashed var(--line)}
+details.q:last-child{border-bottom:0}
+details.q>summary{cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:9px;
+  padding:7px 4px;font-size:13.1px;color:var(--ink2);border-radius:8px}
+details.q>summary::-webkit-details-marker{display:none}
+details.q>summary:hover{background:#f8faff;color:var(--ink)}
+details.q>summary::before{content:"▸";color:var(--ink3);font-size:10.5px;flex:0 0 auto;transition:.15s;display:inline-block}
+details.q[open]>summary::before{transform:rotate(90deg)}
+details.q[open]>summary{color:var(--ink);font-weight:600}
+details.q .qy{flex:0 0 auto;font-size:11.5px;font-weight:700;color:var(--brand-d);background:var(--brand-l);
+  border-radius:5px;padding:1px 6px}
+details.q .qs{flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+details.q[open] .qs{white-space:normal;text-overflow:clip}
+details.q .qc{flex:0 0 auto;font-size:11.2px;color:var(--ink3)}
+details.qq{padding:2px 4px 11px 22px}
+details.qq .full{font-size:13.4px;line-height:1.78;white-space:pre-wrap;word-break:break-word;color:var(--ink)}
+details.qq .mi{margin-top:7px;display:flex;gap:6px;flex-wrap:wrap}
+details.qq .mi .tag{font-size:11.2px}
+.mnone{color:var(--ink3);font-size:12.6px;padding:6px 4px}
+
+/* ---------- 手机端（≤900px）追加 ---------- */
+@media(max-width:900px){
+  .tabs button{flex:1 1 calc(33% - 3px);padding:9px 4px;font-size:12.2px}
+  #methodMatrix{min-width:820px}
+  /* 方法总表 → 手机端卡片（表格 rowspan/多列在窄屏会压成一团） */
+  .mtable{display:block}
+  .mtable thead{display:none}
+  .mtable tbody{display:block}
+  .mtable tr{display:block;border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:11px;
+    padding:10px 12px;margin-bottom:9px;background:#fdfdff}
+  .mtable tbody tr:hover{background:#fdfdff}
+  .mtable td{display:block;border:0;padding:0;text-align:left}
+  .mtable td.mname{font-size:13.6px;font-weight:700;white-space:normal;margin-bottom:3px}
+  .mtable td.num{display:inline-block;font-size:12.4px;margin:2px 8px 5px 0}
+  .mtable td.num::after{content:" 题";color:var(--ink3);font-weight:400}
+  .mtable td.mbar-cell{display:inline-block;vertical-align:middle;margin-bottom:5px}
+  .mtable td.mdesc{font-size:12.5px;white-space:normal;margin-top:3px}
+  .qcard{padding:12px 12px 11px;border-radius:12px}
+  .qstem{font-size:13.4px;line-height:1.8}
+  .codebar{padding:5px 9px}
+  .codebar .hint{display:inline-block}
+  .codebox pre.code{font-size:12px;padding:10px 11px;line-height:1.6}
+  .qfoot{padding-top:8px}
+  .tagbtn{padding:5px 11px;font-size:12.2px}
+  .tagbtn.sm{padding:4px 9px}
+  .mgroup{padding:12px 12px 10px;border-radius:11px}
+  .mtitle{font-size:14.4px}
+  .mdesc{font-size:12.6px}
+  details.q>summary{padding:9px 3px;font-size:12.9px}
+  details.qq{padding:2px 0 11px 14px}
+  details.qq .full{font-size:13.3px}
+  .mtable td.mdesc{white-space:normal;min-width:150px}
+  .codeedit{font-size:11.8px}
+}
+@media(min-width:901px){
+  .codebar .hint{display:none}
+}
+
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <span class="badge">重庆邮电大学  003 人工智能学院  自命题 802《数据结构》</span>
-    <h1>历年真题  题型三级分类 + 参考答案与解析
+    <h1>历年真题 · 题型三级分类 + 参考答案与解析
       <small>20122025 共 14 套真题，逐题拆分并按「章  考点」归类，每题附参考答案与解析思路</small>
     </h1>
     <div class="kpis" id="kpis"></div>
@@ -256,15 +403,17 @@ footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38
 
 <main class="wrap">
   <div class="tabs" id="tabs">
-    <button class="on" data-p="p-list"> 真题 + 答案</button>
+    <button class="on" data-p="p-code"> 代码题</button>
+    <button data-p="p-plain"> 普通题</button>
+    <button data-p="p-list"> 真题 + 答案</button>
     <button data-p="p-taxo"> 题型三级分类</button>
-    <button data-p="p-matrix"> 考点  年份</button>
+    <button data-p="p-matrix"> 考点 × 年份</button>
     <button data-p="p-gold"> 高频题型清单</button>
     <button data-p="p-tips"> 使用说明与免责</button>
   </div>
 
   <!-- ============ 真题 + 答案 ============ -->
-  <section class="panel on" id="p-list">
+  <section class="panel" id="p-list">
     <div class="layout">
       <div class="card tree" id="tree"><h3>按章节 / 考点筛选<button class="tree-close" id="treeClose" aria-label="关闭筛选面板">✕</button></h3><div id="treebody"></div></div>
       <div>
@@ -293,6 +442,56 @@ footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38
     <button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
   </section>
 
+<!-- ============ 代码题 ============ -->
+  <section class="panel on" id="p-code">
+    <div class="card">
+      <h2 class="sec">代码题 · 必备知识点清单</h2>
+      <p class="sub">
+        全部 <b id="codeTotal">0</b> 道代码题（程序阅读题、程序设计题、算法设计题，以及题干里给出代码的综合应用题 / 选择填空问答），
+        已按「<b>必备知识点</b>」逐题标注，每题 2–6 个标签。<br>
+        用法：<span class="only-desk">点</span><span class="only-mob">点</span>下面任意标签，
+        就能筛出所有需要这个知识点的题——想知道「哪些题必须会快慢指针」，点它即可；选多个标签可组合筛选。
+      </p>
+      <div id="tagIndex"></div>
+      <div class="codefiles" id="codeFiles"></div>
+    </div>
+    <div class="card">
+      <div class="resultbar" id="codeBar"></div>
+      <div id="codeList"></div>
+    </div>
+  </section>
+
+  <!-- ============ 普通题 ============ -->
+  <section class="panel" id="p-plain">
+    <div class="card">
+      <h2 class="sec">普通题 · 按「做题核心方法」分类</h2>
+      <p class="sub">
+        其余 <b id="plainTotal">0</b> 道题（选择、填空、问答题、以及不需要读代码的综合应用题）按
+        <b>做题核心方法</b>重新归类：求树深度 → <b>背公式</b>；问概念 → <b>背概念</b>；求最小生成树 → <b>Prim / Kruskal 手算</b>；
+        求数组地址 → <b>数组地址计算</b>。<br>
+        归类标准是「<b>拿到这题你实际要动用什么手段</b>」，不是知识章节——所以同一章里的题会散到不同方法里，
+        这才是复习时该按什么去刷。<span class="only-mob">表格可左右滑动。</span>
+      </p>
+      <div class="filters" style="margin-bottom:12px">
+        <input type="search" id="pQ" placeholder=" 搜索普通题题干关键词，如「哈夫曼」「next」「拓扑」">
+        <button class="btn" id="pClear">清除筛选</button>
+      </div>
+      <p class="mhint only-desk">点表格里的「方法」行，即可只看这一类题目。</p>
+      <div class="tblwrap"><table class="mtable" id="methodTable"></table></div>
+    </div>
+    <div class="card">
+      <h2 class="sec">核心方法 × 年份 分布</h2>
+      <p class="sub">行＝核心方法，列＝年份；数字为该年该方法的题目数。用于判断「哪些方法年年都考」。</p>
+      <div class="scrollhint">← 表格可左右滑动查看，左侧方法列已吸附</div>
+      <div class="tblwrap"><table id="methodMatrix"></table></div>
+    </div>
+    <div class="card">
+      <div class="resultbar" id="plainBar"></div>
+      <div id="plainList"></div>
+    </div>
+  </section>
+
+
   <!-- ============ 三级分类 ============ -->
   <section class="panel" id="p-taxo">
     <div class="card">
@@ -312,7 +511,7 @@ footer{text-align:center;color:var(--ink3);font-size:12.3px;padding:22px 18px 38
   <!-- ============ 矩阵 ============ -->
   <section class="panel" id="p-matrix">
     <div class="card">
-      <h2 class="sec">考点  年份 出题矩阵</h2>
+      <h2 class="sec">考点 × 年份 出题矩阵</h2>
       <p class="sub">行＝知识章节，列＝年份；数字为该年该章的题目数。用于判断「哪一章年年考」。</p>
       <div class="scrollhint">← 表格可左右滑动查看，左侧章节列已吸附</div>
       <div class="tblwrap"><table id="matrix"></table></div>
@@ -377,7 +576,7 @@ const CHS = Object.keys(FINE_BY_CH).sort((a,b)=>FLAT.filter(x=>x.ch===b).length-
   const withAns = Object.keys(ANS).length;
   const fineCount = new Set(FLAT.map(x=>x.fine)).size;
   $("#kpis").innerHTML = [
-    ["年份", Math.min(...yrs)+""+Math.max(...yrs)],
+    ["年份", Math.min(...yrs)+"–"+Math.max(...yrs)],
     ["真题", P.length+" 套"],
     ["拆分小题", S.total+" 道"],
     ["具体考点", fineCount+" 个"],
@@ -705,6 +904,363 @@ $("#disclaimer").innerHTML=`
  综合应用题中需要画图（二叉树、线索树、生成树、哈夫曼树）的部分，本页给出的是<b>构造过程与结论</b>，建议自己动笔画一遍；
  若发现某题答案与你的推导不符，请以教材定义和你自己的推导为准，并欢迎指出  这类题目往往本身存在歧义。
 `;
+
+/* ==================================================================
+   新增：代码题 / 普通题 视图
+   （由 802_build/build.py 注入到末尾 render(); 之前）
+   ================================================================== */
+const META = {"2012.2.0":{"k":"c","t":["双向链表","指针操作顺序"],"p":"双循环链表在 p 后插入 s：四条指针的回填顺序","s":"在双循环链表中，写出在指针 p 所指结点之后插入指针 s 所指结点的执行语句序列。\n结点定义如下：","c":"struct Node{\n    char data;\n    Node next;\n    Node prior;\n};","ck":"struct","cn":"代码来自原卷第 5 页；原卷结点定义未写指针星号（原文如此），按原样保留"},"2012.4.0":{"k":"c","t":["头插法逆置","三指针","指针操作顺序","原地 O(1)"],"p":"单链表就地逆置：头插法或三指针改链，改链顺序不能反","s":"有一个单链表L（至少有一个结点），其头结点指针为L，编写一个过程将L置逆，要求逆转在原链表上进行。\n单链表中的结点定义如下：","c":"struct Node {\n    char data;\n    Node *next;\n};","ck":"struct","cn":"原卷第 7 页给出结点定义（分行书写），题干中的单行写法为其压缩形式"},"2013.1.0":{"k":"c","t":["复杂度分析","空间/时间代价"],"p":"递归深度为 n、每层常数工作，时间复杂度 O(n)","s":"求整数 n(n≥0) 阶乘函数的递归算法如下，其时间复杂度是（　）。","c":"long Factorial(long n) {\n    if (n == 0) return 1;\n    else return n * Factorial(n - 1);\n}","ck":"full","cn":"代码来自原卷第 4 页；原卷分两行排版，行末断行已理顺并统一缩进"},"2013.3.0":{"k":"c","t":["中序判 BST","递归后序","算法思想描述","C 语言实现"],"p":"递归交换每个结点的左右子树，使中序由升序变降序","s":"现有一棵二叉查找（排序）树BST，以二叉链表形式存储，中序遍历可得从小到大排列的有序序列。试设计一算法，对该BST进行变换，使得对新二叉树进行中序遍历可得到从大到小排列的有序序列。要求：\n（1）描述算法的基本设计思想。\n（2）根据设计思想，描述算法的详细实现步骤，可使用伪代码、C 或C++ 或JAVA 语言，关键之处给出简要注释。\n有关的数据结构已描述如下：","c":"struct Binary_node {   // 二叉树结点\n    int data;\n    Binary_node *left;\n    Binary_node *right;\n};","ck":"struct","cn":"原卷第 6 页给出结点定义（原卷 struct 与 Binary_node 分行，注释在 struct 行右侧）"},"2013.3.1":{"k":"c","t":["首尾双指针","原地 O(1)","算法思想描述","C 语言实现","空间/时间代价"],"p":"降序顺序表首尾对换就地逆置成升序，O(n)、O(1)","s":"某顺序表中的数据序列为降序序列，试设计一算法将数据序列变换为升序序列。要求：\n（1）描述算法的基本设计思想。\n（2）根据设计思想，描述算法的详细实现步骤，可使用伪代码、C 或C++ 或JAVA 语言，关键之处给出简要注释。\n（3）分析算法时间复杂度、空间复杂度。","c":"","ck":"none","cn":"原卷只有文字要求，未给出任何代码"},"2014.3.0":{"k":"c","t":["递归后序","递归返回值约定","平衡因子","树高/最长路径","算法思想描述","C 语言实现"],"p":"后序求子树高度，|hl−hr|≤1 且左右子树均平衡","s":"现有二叉平衡树（或为空树，或者根结点的左右子树高度差最大为1且左、右子树为二叉平衡树），试设计一算法判断该二叉树是否为二叉平衡树。\n1) 先给出设计思想；\n2) 再描述具体算法，必要时请给予注释说明。","c":"","ck":"none","cn":"原卷只有文字要求，未给出结点定义"},"2014.3.1":{"k":"c","t":["算法思想描述","C 语言实现","边界判断","复杂度分析"],"p":"有序表上滑动窗口求中位邻近k个分数的均值并统计频率","s":"现有某比赛活动中某选手的n个评分结果（百分制，已知都在60以上的整数）已存入顺序表中，并且已按升序排序。为了分析相关规律，现需分析评分的k-均值直方图（以当前分数为中位数(位置在中间)，计算最邻近的k个分数平均值并取为整数，然后统计分数的频率得到。若当前分左边或右边数据不足时直接忽略，不计入统计数据），请设计一尽量快速的算法，求得打印直方图前的统计结果。\n1) 先给出设计思想\n2) 再描述具体算法，必要时请给予注释说明。","c":"","ck":"none","cn":"原卷只有文字要求，未给出任何代码"},"2015.3.0":{"k":"c","t":["首尾双指针","原地 O(1)","算法思想描述","C 语言实现","空间/时间代价"],"p":"首尾双指针一趟划分，负值全在非负值之前，O(n)","s":"设计一算法，使得在尽可能少的时间内重排数组，将所有取负值的关键字放在所有取非负值的关键字之前。\n1) 先给出算法思想:\n2) 再描述具体算法，必要时请给予注释说明；\n3) 请分析算法的时间复杂度。","c":"","ck":"none","cn":"原卷只有文字要求，未给出任何代码"},"2015.3.1":{"k":"c","t":["中序判 BST","递归返回值约定","算法思想描述","C 语言实现"],"p":"中序遍历判关键字是否严格递增（或递归带上下界）","s":"设计一算法判断某一二叉树是否为二叉排序树\n1) 二叉树用二叉链表的形式表示，定义如下:\n2) 先给出算法思想，再描述算法，必要时给予注释说明。","c":"typedef struct node {\n    DataType data;\n    struct node *lchild, *rchild;\n} BinTNode;","ck":"struct","cn":"原卷第 9 页给出定义，OCR 把 *lchild 误识为 *Jchild，已按题干还原为 *lchild"},"2016.1.1":{"k":"c","t":["指针操作顺序","边界判断","原地 O(1)"],"p":"用 q->next 顶替被删结点，尾结点时该做法失效","s":"设指针变量 p 指向单链表中结点 A，则删除结点 A 的语句序列为：","c":"q = p->next;\np->data = q->data;\np->next = ____①;\nfree(q);","ck":"blank","cn":"代码来自原卷第 5 页；原卷空位印在 `p->next=` 之后、`free(q)` 之前，提取文本错行，已还原为 4 条语句、空位 1 处"},"2016.3.0":{"k":"c","t":["首尾双指针","原地 O(1)","算法思想描述","C 语言实现"],"p":"三次逆置法循环右移k位，仅用一个元素附加空间、O(n)","s":"请设计一个算法，将有n个元素的数组A中的元素A[0]至A[n-1]循环右移k位，并要求只用一个元素大小的附加存储，元素移动或交换次数为O(n)。要求先给出算法思想，再描述算法，必要时请给予注释和说明。","c":"","ck":"none","cn":"原卷只有文字要求，未给出任何代码"},"2016.3.1":{"k":"c","t":["二分查找","递归返回值约定","边界判断","算法思想描述","C 语言实现"],"p":"沿BST比较下降：key小走左、大走右，失败返回NULL","s":"设计在二叉排序树上查找节点的值等于key（int类型）的节点算法。其中二叉树用二叉链表的形式表示，定义如下：\n要求先给出算法思想，再描述算法，必要时请给予注释和说明。","c":"typedef struct node{\n    int key;\n    struct node *lchild, *rchild;\n} BinNode, *bitree;","ck":"struct","cn":"原卷第 9 页给出定义，OCR 把 *rchild 误识为 *lchild（两个指针同名），已按题干还原"},"2017.3.0":{"k":"c","t":["带头结点/伪头指针","头插法逆置","指针操作顺序","算法思想描述","C 语言实现"],"p":"带头结点单链表头插法就地逆置，摘结点头插顺序不能乱","s":"试写一算法，对带头结点的单链表实现就地逆置。\n（1）结点结构定义如下：\n（2）先给出算法思想，再描述具体算法，必要时请给予注释说明。","c":"typedef struct node{          //结点类型定义\n    int data;                 //结点的数据域\n    struct node *next;        //结点的指针域\n} ListNode, *LinkList;","ck":"struct","cn":"原卷第 6 页给出定义，原卷注释分行排在成员下方，已还原为行尾注释"},"2017.3.1":{"k":"c","t":["递归后序","递归返回值约定","平衡因子","算法思想描述","C 语言实现"],"p":"后序递归求左右子树高度差，失衡返回−1提前结束","s":"给定某一二叉树的根结点，请写一个算法判断该树是否为平衡二叉树。\n（1）二叉树用二叉链表表示，定义如下：\n（2）先给出算法思想，再描述算法，必要时给予注释说明。","c":"typedef struct tnode{\n    int key;\n    struct tnode *lchild, *rchild;\n} BinNode, *bitree;","ck":"struct","cn":"原卷第 6 页给出结点定义，照抄"},"2018.2.4":{"k":"c","t":["C 语言实现","空间/时间代价"],"p":"链表很长时递归深度 O(n) 会栈溢出，应改为循环","s":"假设一个线性链表的类名为 linkedList，链表结点的类名为 ListNode，它包含两个数据成员 data 和 link，data 存储该结点的数据，link 是链接指针。下面给定一段递归打印一个链表中所有结点中数据的算法：\n试问此程序在什么情况下不实用？给出具体修改后的可实用的程序？","c":"void PrintList(ListNode *L) {\n    if (L != NULL) {\n        printf(\"%d \", L->data);\n        PrintList(L->link);\n    }\n}","ck":"full","cn":"代码来自原卷第 5 页；原卷分 5 行排版，内容未改动"},"2018.3.0":{"k":"c","t":["叶子/结点计数","中序判 BST","递归返回值约定","边界判断","C 语言实现"],"p":"按关键字插入建BST（中序有序）；递归数叶子结点数","s":"现有关键字序列{45,24,37,53,12,93,47,60}，按以下要求完成：\n（1）根据给定的关键字序列构造一棵二叉查找（排序）树，以二叉链表形式存储，进行中序遍历可以得到从小到大排列的有序序列，请写出构造过程（不要求算法）。\n（2）在(1)的基础上，请编写一个函数int LeafCount(Binary_tree BT)，求此二叉树的叶子结点个数。有关数据结构已描述如下：","c":"typedef struct {   //二叉树结点\n    int data;\n    Binary_node *left;\n    Binary_node *right;\n} Binary_node, *Binary_tree;\nint LeftCount(Binary_tree bt);   //计算树bt的叶结点的个数","ck":"struct","cn":"原卷第 6 页给出结点定义与一行函数声明（原卷写成 LeftCount，与题干要求的 LeafCount 不一致，照抄）"},"2018.3.1":{"k":"c","t":["插入排序","原地 O(1)","复杂度分析"],"p":"识别希尔排序（增量d=1,4,13…）并逐趟追踪移动次数","s":"下面给出一个排序算法，其中n是数据类型为Type的数组A[]中元素总数。\n(1) 阅读此算法，说明它的功能；\n(2) 对于下面给出的整数数组，追踪第一趟while(d>0)内的每次for循环结束时数组中数据的变化。（为清楚起见，本次循环未涉及的不移动的数据可以不写出，每行仅写出一个for循环的变化；整数数组为 77, 44, 99, 66, 33, 55, 88, 22, 44, 11，原卷下方附“步/a[0]…a[9]/移动次数”空白追踪表格）\n(3) 以上各次循环的数据移动次数分别是多少。","c":"void unknown(Type a[], int n) {\n    int d = 1, j;\n    while (d < n/3) d = 3*d+1;\n    while (d > 0) {\n        for (int i = d; i < n; i++) {\n            Type temp = a[i];\n            j = i;\n            while (j >= d && a[j-d] > temp) { a[j] = a[j-d];  j -= d; }\n            a[j] = temp;\n        }\n        d /= 3;\n    }\n}","ck":"full","cn":"原卷第 6 页完整代码，唯双空格处照原卷保留；原卷在 (2) 下另附空白追踪表格（非代码）"},"2019.1.10":{"k":"c","t":["循环队列/共享空间","边界判断","返回值约定"],"p":"共享循环空间双队列的判满条件与取模入队","s":"假设两个队列共享一个循环向量空间，其类型 Queue2 定义如下：\n对于 i=0 或 1，front[i] 和 rear[i] 分别为第 i 个队列的头指针和尾指针。请对以下算法填空，实现第 i 个队列的入队操作。","c":"typedef struct{\n    DateType data[MaxSize];\n    int front[2],rear[2];\n}Queue2;\n\nint EnQueue(Queue2 *Q, int i, DateType x)\n{   //若第 i 个队列不满，则元素 x 入队列，并返回 1；否则返回 0\n    if( i<0||i>1 ) return 0;\n    if( Q->rear[i] == Q->front[____①] ) return 0;\n    Q->data[____②] = x;\n    Q->rear[i] = ____③;\n    return 1;\n}","ck":"blank","cn":"代码来自原卷第 4 页；提取文本行序错乱（算法体各句倒排），已按题干与 items.json 原文还原为标准 C；含 3 个空（原卷 ______）"},"2019.2.1":{"k":"c","t":["头插法逆置","叶子/结点计数","指针操作顺序"],"p":"递归中序遍历，把叶子结点用头插法建成单链表","s":"已知二叉树的存储结构为二叉链表，阅读下面算法。\n对于如下所示的二叉树：\n(1) 画出执行上述算法后所建立的结构\n(2) 说明该算法的功能","c":"typedef struct node {\n    DateType data;\n    struct node *next;\n}ListNode;\ntypedef ListNode *LinkList;\nLinkList Leafhead = NULL;\n\nvoid Inorder(BinTree T)\n{\n    LinkList s;\n    if (T) {\n        Inorder(T->lchild);\n        if ((!T->lchild) && (!T->rchild)) {\n            s = (ListNode *)malloc(sizeof(ListNode));\n            s->data = T->data;\n            s->next = Leafhead;\n            Leafhead = s;\n        }\n        Inorder(T->rchild);\n    }\n}","ck":"full","cn":"代码来自原卷第 5 页；提取文本关键字大小写、`->`、全角分号错乱，已还原为标准 C；为完整算法"},"2019.2.5":{"k":"c","t":["插入排序","边界判断","原地 O(1)"],"p":"直接插入排序 + r(0) 哨兵；把比较改成 <= 会破坏稳定性","s":"请阅读下列算法，回答问题：\n(1) 这是什么类型的排序算法，该排序算法稳定吗？\n(2) 设置 r(0) 的作用是什么？\n(3) 若将 while 语句中判断条件改为 x<=r(j)，该算法将会有什么变化？\n(4) 若将 while 语句中判断条件改为 x<=r(j)，该算法是否还能正确工作？","c":"sort(r, n)\n{\n    for (i = 2; i <= n; i++)\n    {\n        x = r(i);\n        r(0) = x;\n        j = i - 1;\n        while (x < r(j))\n        {\n            r(j + 1) = r(j);\n            j = j - 1;\n        }\n        r(j + 1) = x;\n    }\n}","ck":"full","cn":"代码来自原卷第 7 页；原卷下标写作 r(i) 形式，按原样保留；提取文本把第 (1)(2) 问插在代码中间，已按原序拆开"},"2019.3.0":{"k":"c","t":["C 语言实现","边界判断","指针操作顺序"],"p":"从D末尾向前整体移位腾位，再更新S[i+1..n]首地址","s":"设有大小不等的n个数据组，其数据总量为m，顺序存放在空间区D内，每个数据占一个存储单元，数据组的首地址由数组S给出，（如下图所示），试编写将新数据x插入到第i个数据组的末尾且属于第i个数据组的算法，插入后，空间区D和数组S的相互关系仍保持正确。","c":"","ck":"none","cn":"原卷只有文字要求与示意图，未给出任何代码"},"2019.3.1":{"k":"c","t":["快速排序划分","首尾双指针","原地 O(1)","边界判断","C 语言实现"],"p":"以平均值为轴做双向扫描划分，再递归左右两段","s":"快速排序算法中，如何选取一个界值（又称为轴元素），影响着快速排序的效率，而且界值也并不一定是被排序序列中的一个元素。例如，我们可以用被排序序列中所有元素的平均值作为界值。用C语言编写算法实现以平均值为界值的快速排序方法（注：待排序数据存储在数组R[]中，数组最小下标为S，数组最大下标为T）。","c":"","ck":"none","cn":"原卷只有文字要求，未给出任何代码"},"2020.2.0":{"k":"c","t":["栈模拟","C 语言实现"],"p":"后缀表达式求值：数字入栈，运算符弹出两数运算后回栈","s":"下面这段 C 代码，针对输入的简单算术表达式的后缀表达式，输出其计算结果。例如，输入 5 2 * 3 3 2 + * +，该程序输出 25。请给出缺失的 5 行代码。","c":"#include\n#define EOF -1\nvoid push (int); /* push the argument on the stack */\nint pop (void); /* pop the top of the stack */\nvoid flagError ( );\nint main ( )\n{\n    int c, m, n, r;\n    while ((c = getchar ( )) != EOF)\n    {\n        if (isdigit (c))\n            （1）;\n        else if ((c == '+') || (c == '*'))\n        {\n            m = （2）;\n            n = （3）;\n            r = (c == '+') ? n + m : n*m;\n            （4）;\n        }\n        else if (c != ' ')\n            flagError ( );\n    }\n    printf(\"% c\", （5）);\n}","ck":"blank","cn":"代码来自原卷第 6 页，5 个空为原卷（1）–（5）；原卷 `#include` 后头文件名缺失（扫描件即如此）、`printf` 写作 `\"% c\"`，均照原文保留未改；缩进与花括号位置按 4 空格规整"},"2020.3.0":{"k":"c","t":["双向链表","尾插/接链","指针操作顺序","边界判断","算法思想描述","C 语言实现"],"p":"双循环链表按奇偶拆链，奇数链升序后接逆序偶数链","s":"设以带头结点的双向循环链表表示的线性表为L=(a1, a2, a3, ..., an)。试写一时间复杂度O(n)的算法，将L改造为L=(a1, a3, ..., an, ..., a4, a2)。要求：\n（1）描述算法的基本设计思想；\n（2）根据设计思想，采用C语言描述算法，关键之处给出注释。","c":"","ck":"none","cn":"原卷只有文字要求，未给出结点定义"},"2020.3.1":{"k":"c","t":["逆序对统计","归并","复杂度分析","C 语言实现"],"p":"归并排序合并时统计逆序数，O(n log n)","s":"ORDER公司是一个专门为人们提供排序服务的公司，该公司的宗旨是：“秩序是最美丽的”。他们的工作是通过一系列移动，将某些物品按顺序摆好。他们的服务是通过工作量来计算的，即移动东西的次数。所以，在工作前必须先考察工作量，以便向用户提出收费价格。\n用户并不知道精确的移动次数，实质上，大多数人是凭感觉来认定这一列物品的混乱程度。根据ORDER公司的经验，人们一般是根据“逆序对”的数目多少来称呼这一序列的混乱程度。\n假设我们将序列中第i件物品的参数定义为Ai，那么排序就是指将A1，Ai，An按从小到大的顺序排序。若i<j且Ai>Aj，则<i, j>就为一个“逆序对”。\n例如：数组(3, 1, 4, 5, 2)的“逆序对”有<3, 1>、<3, 2>、<4, 2>、<5, 2>，共4个。\n现在，OEDER公司请你写一个程序，在尽量短的时间内，统计出“逆序对”的数目。程序输入n, A1, …, Ai, …, An，1≤n≤30000, Ai为小于200的正整数。输出序列A1, …, Ai, …, An的“逆序对”数目，即“逆序数”。并请分析你设计的算法的时间复杂度。","c":"","ck":"none","cn":"原卷只有文字要求，未给出任何代码"},"2021.2.0":{"k":"c","t":["栈模拟","C 语言实现","返回值约定"],"p":"栈与队列同时收字符，再逐个弹出配对比较判回文","s":"（10 分）假设称正读和反读都相同的字符序列为“回文”，例如，‘abba’和‘abcba’是回文，‘abcde’和‘ababab’则不是回文。下面代码判别读入的一个以‘@’为结束符的字符序列是否是“回文”。请给出缺失的 5 行代码。","c":"Status SymmetryString(char* p)\n{\n    Queue q;\n    if(!InitQueue(q)) return 0;\n    Stack s;\n    InitStack(s);\n    ElemType e1, e2;\n    while( （1） ){\n        Push(s,*p);\n        EnQueue(q,*p);\n        （2）\n    }\n    while(!StackEmpty(s)){\n        （3）\n        （4）\n        if( （5） ) return FALSE;\n    }\n    return OK;\n}","ck":"blank","cn":"代码来自原卷第 5、6 页（跨页拼接，已删中间广告行），5 个空为原卷（1）–（5）；原卷（2）后无分号，照原文保留"},"2021.2.1":{"k":"c","t":["复杂度分析","二分查找","空间/时间代价"],"p":"sort 加 n² 次二分查找：N 变 10 倍时耗时约增 128 倍","s":"（5 分）阅读下面代码：\n假设当 N = 3500 时，上述代码运行 1 秒。那么，当 N = 35000 时，该代码的运行时间最接近下面哪个时间？请给出简单的分析过程。\nA. 10 seconds\nB. 20 seconds\nC. 1 minute\nD. 2 minutes\nE. 1 hour\nF. 2 hours","c":"int count = 0;\nint N = a.length;\nsort(a);\nfor (int i = 0; i < N; i++) {\n    for (int j = i+1; j < N; j++) {\n        if (BinarySearch(a, a[i] + a[j])) count++;\n    }\n}","ck":"full","cn":"代码来自原卷第 6 页；sort 与 BinarySearch 为题目约定的库函数，按原样保留"},"2021.3.0":{"k":"c","t":["算法思想描述","C 语言实现","空间/时间代价","二分查找","复杂度分析"],"p":"双调序列上二分逼近峰值：比较 mid 与 mid+1 判断在增段还是减段","s":"如果一个序列是一个先单调递增后单调递减的序列，那么它称为双调序列。设计一个尽可能高效的算法，找到由N个数组成的一个双调序列中最大的关键值。要求：\n(1)描述算法的基本设计思想；\n(2)根据设计思想，采用C或C++语言描述算法，关键之处给出注释；\n(3)说明你所设计的算法的时间复杂度和空间复杂度。","c":"","ck":"none","cn":"原卷第 8 页只有文字要求，未给出任何代码"},"2021.3.1":{"k":"c","t":["算法思想描述","C 语言实现","空间/时间代价","前驱定位","头插法逆置","原地 O(1)"],"p":"一趟扫描：去重计数 >x、头插逆置 <x 段、删除 >x 的偶数","s":"设有一个正整数序列组成的有序单链表（按递增有序，且允许有相等的整数存在），请设计一个用最小的时间和最小空间的算法实现下列功能：\n(a)确定在序列中比正整数x大的数有几个（相同的数只计算一次，如序列{3、5、6、6、8、10、11、13、13、16、17、20、20}中比10大的数有5个）；\n(b)将单链表中比正整数x小的数按递减次序排列；\n(c)将正整数比x大的偶数从单链表中删除。\n要求：\n(1)描述算法的基本设计思想；\n(2)根据设计思想，采用C或C++语言描述算法，给出注释；\n(3)说明你所设计的算法的时间复杂度和空间复杂度。\n提示：节点定义供参考\n提示：算法定义形式供参考","c":"typedef struct node {\n    int data;\n    struct node *next;\n}LNode,*LinkList;\n\nvoid FunctionExam(LinkList L1, int x) {\n    ......\n}","ck":"struct","cn":"原卷第 9 页提示给出结点定义与算法定义形式（函数体为省略号），算法需自拟"},"2022.2.0":{"k":"c","t":["中序判 BST","边界判断","算法思想描述"],"p":"逆中序（右根左）遍历 BST，全局计数剪枝输出第 k 大","s":"（5 分）阅读代码，函数 print() 接收二叉查找树(BST)的根和一个正整数 k 作为参数。请：\n(1) 简述该代码的功能；\n(2) print(root, 3) 的输出是什么？其中 root 表示下图 BST 树的根。","c":"// a BST node\nstruct node {\n    int data;\n    struct node *left, *right;\n};\nint count = 0;\nvoid print(struct node *root, int k)\n{\n    if (root != NULL && count <= k)\n    {\n        print(root->right, k);\n        count++;\n        if (count == k)\n            printf(\"%d \", root->data);\n        print(root->left, k);\n    }\n}","ck":"full","cn":"代码来自原卷第 5 页；原卷函数体本级缩进缺失，已按 4 空格规整，内容未改动"},"2022.2.1":{"k":"c","t":["复杂度分析","空间/时间代价"],"p":"三重循环枚举组合数约 C(N,3)，T(N)=N³/10⁹ 秒","s":"（5 分）有一段代码：\n假设 N = 1000 时，执行这段代码需要 1 秒时间。现在对这段代码的运行时间（秒）进行预估，请用一个关于 N 的函数来表示。","c":"int count = 0;\nfor (int i = 0; i < N; i++)\n    for (int j = i+1; j < N; j++)\n        for (int k = j+1; k < N; k++)\n            if (a[i] + a[j] >= a[k]) count++;","ck":"full","cn":"代码来自原卷第 5 页；三层循环按原卷缩进保留，内容未改动"},"2022.3.0":{"k":"c","t":["算法思想描述","C 语言实现","空间/时间代价","循环单链表","原地 O(1)","尾插/接链"],"p":"按 exp 奇偶就地拆分循环链表为两个循环多项式链表，O(1) 空间","s":"设计一个算法，将一个用循环链表表示的稀疏多项式分解成两个多项式，使这两个多项式中各自仅含奇次项或偶次项，并要求利用原链表中的结点空间构成这两个链表。要求：\n(1)描述算法的基本设计思想；\n(2)根据设计思想，采用C或C++语言描述算法，关键之处给出注释；\n(3)说明所设计算法的时间复杂度和空间复杂度。\n提示：其中稀疏多项式采用的循环链表存储结构LinkedPoly定义为\n算法描述，只需要给出如何将循环链表L分成满足要求的两个循环链表的操作，即完善下述函数：","c":"typedef struct PolyNode {\n    float coef;  //单项式的系数\n    int exp;  //单项式的指数\n    struct PolyNode *next;\n} PolyNode;\ntypedef PolyNode* LinkedPoly;\n\nvoid Divide(LinkedPoly L) {\n    ......\n}","ck":"struct","cn":"原卷第 7、8 页提示给出类型定义与待完善的空函数 Divide（函数体跨页、原卷写作省略号），算法需自拟"},"2022.3.1":{"k":"c","t":["算法思想描述","C 语言实现","空间/时间代价","BFS","访问标记数组"],"p":"两次 BFS 求图直径，取直径中点作根生成 BFS 树即最小半径","s":"从根到叶子的最大距离称为树的半径。给定一个无向连通图，写一个算法找出半径最小的生成树。要求：\n(1)描述算法的基本设计思想；\n(2)根据设计思想，采用C或C++语言描述算法，关键之处给出注释；\n(3)说明所设计算法的时间复杂度和空间复杂度。","c":"","ck":"none","cn":"原卷第 8 页只有文字要求，未给出任何代码"},"2023.0.0":{"k":"c","t":["复杂度分析","空间/时间代价"],"p":"四重循环枚举四元组，由 N=1000 的耗时按 O(N⁴) 外推","s":"（4分）有一段代码：\n假设N = 1000 时，执行这段代码需要1000秒时间。当N = 10000 时，请预测它的运行时间是多少秒。","c":"int brute(int a[ ], int N) {\n    int i, j, k, m;\n    for (i = 0; i < N; i++)\n        for (j = i+1; j < N; j++)\n            for (k = j+1; k < N; k++)\n                for (m = k+1; m < N; m++)\n                    if (a[i] + a[j] + a[k] + a[m] == 0) return 1;\n    return 0;\n}","ck":"full","cn":"代码来自原卷第 2 页，缩进按原卷 4 层循环还原"},"2023.0.1":{"k":"c","t":["快速幂/位运算","复杂度分析","空间/时间代价"],"p":"mystery 用二进制拆分求 mⁿ，最坏迭代 O(log n) 次","s":"（5分）有如下代码段：\n（1）m, n是两个整数，m, n ≥0, 请问函数mystery(m, n) 的功能是什么？\n（2）给出在最坏情况下，这段代码的时间复杂度，用n的函数表示。","c":"int mystery(int m, int n) {\n    int p = 1;\n    int x = m;\n    int y = n;\n    while (y != 0) {\n        if (y % 2 == 0) { x *= x; y /= 2; }\n        else { y -= 1; p *= x; }\n    }\n    return p;\n}","ck":"full","cn":"原卷 `！=` 为全角、`−=` 为减号，已理顺为 C 语言运算符"},"2023.0.2":{"k":"c","t":["原地 O(1)","边界判断","指针操作顺序"],"p":"两两交换相邻结点的值域，需推演 p、q 前进方式与输出序列","s":"（5分）一个单链表按序存放一个整数序列{1, 2, 3, 4, 5, 6, 7}，且该单链表作为函数rearrange的输入。请写出执行函数rearrange后的输出。","c":"struct node {\n    int value;\n    struct node *next;\n};\n\nvoid rearrange(struct node *list) {\n    struct node *p, *q;\n    int temp;\n    if ((!list) || !list->next)\n        return;\n    p = list;\n    q = list->next;\n    while (q) {\n        temp = p->value;\n        p->value = q->value;\n        q->value = temp;\n        p = q->next;\n        q = p ? p->next : 0;\n    }\n}","ck":"full","cn":"函数体跨原卷第 2、3 页，已删去夹在中间的广告行并接续"},"2023.0.3":{"k":"c","t":["四指针交换","双向链表","指针操作顺序","边界判断"],"p":"交换双链表中相邻两结点 P 与 AfterP 的四条指针回填顺序","s":"（6 分）下列代码交换双向链表中两个相邻的元素。请填写完整代码。\n双向链表存储结构：","c":"struct DLinkNode{\n    ElementType datat;\n    Position prior; //Front pointer\n    Position next; //Rear pointer\n};\nstruct DLinkNode;\ntypedef struct DLinkNode *PtrToNode;\ntypedef struct PtrToNode DLinkList;\ntypedef struct PtrToNode Position;\n/*\nP and AfterP are cells to be switched.\n*/\nvoid SwapWithNext( Position P, DLinkList L ){\n    Position BeforeP, AfterP;\n    BeforeP = P->prior;\n    AfterP = P->next;\n    P->next = AfterP->next;\n    ____①;\n    AfterP->next = P;\n    ____②;\n    ____③;\n    AfterP->prior = BeforeP;\n}","ck":"blank","cn":"原卷第 3 页，3 个空为原卷的（1）（2）（3）；`datat` 系原卷笔误，按原样保留"},"2023.3.0":{"k":"c","t":["循环单链表","头插法逆置","指针操作顺序","边界判断","算法思想描述","C 语言实现"],"p":"把第i到第m个结点构成的循环段就地头插逆置","s":"已知L为链表的头结点地址，表中共有m(m>3)个结点，从表中第i(1<i<m)个结点起到第m个结点构成一个循环部分链表。试设计一时间复杂度O(n)的算法PatternInvertL(LinkList L, int i, int m)，将这部分循环链表中所有结点顺序完全倒置。要求：\n(1) 描述算法的基本设计思想；\n(2) 根据设计思想，采用C语言描述算法，关键之处给出注释。\n结点定义如下：","c":"typedef struct node\n{\n    int data;\n    struct node *next;\n}LNode,*LinkList;","ck":"struct","cn":"原卷第 6 页给出结点定义，照抄"},"2023.3.1":{"k":"c","t":["动态规划/多源 BFS","BFS","访问标记数组","算法思想描述","C 语言实现","空间/时间代价"],"p":"多源BFS（或两次一维DP传递）求最近白像素距离，O(nm)","s":"给定一个n×m的矩形位图，位图中的每个像素不是白色就是黑色，但至少有一个是白色的。第i行第j列的像素被称作像素(i, j)。两个像素p1=(i1, j1)，p2=(i2, j2)之间的距离定义为：d (p1, p2) = |i1-i2| + |j1- j2|。现在请设计一个时间复杂度尽可能低的算法来计算图中每个像素与离其最近的“白像素”的距离。\n输入：第1行包含两个整数n和m (1≤n≤150, 1≤m≤150)，用一个空格隔开。接下来n行，每一行都包含一个长度为m的01串。第i+1行第j列的字符若为1，则像素(i, j)是白色的；否则是黑色的。\n输出：包含n行，每行有m个用空格隔开的整数。第i行第j列的整数表示(i, j)与离其最近的白像素之间的距离。\n要求：\n(1) 描述算法的基本设计思想；\n(2) 根据设计思想，采用类C语言的伪代码描述算法，关键之处给出注释。\n(3) 说明你所设计的算法的时间复杂度。","c":"","ck":"none","cn":"原卷第 6-7 页只有文字要求（含输入输出格式），未给出任何代码"},"2024.0.0":{"k":"c","t":["复杂度分析","空间/时间代价"],"p":"x 反复自乘使增长翻倍，循环次数为 O(log log n)","s":"有一个整数n，其中n 为2 的幂。程序通过如下代码计算count 的值，并返回。请分析并给出该代码的时间复杂度。","c":"int main() {\n    int count = 0;\n    int x = 2;\n    while (x < n / 2) {\n        x *= x;\n        count++;\n    }\n    return count;\n}","ck":"full","cn":"原卷第 2 页，全角分号已改为半角"},"2024.0.1":{"k":"c","t":["前驱定位","边界判断","指针操作顺序","复杂度分析"],"p":"先遍历定位 p 的前驱再改链插入，并先做参数合法性判断","s":"下面给出一段关于链表操作的代码片段，请将这些代码片段按正确的顺序排列，使其实现将结点s 插入到结点p 之前的功能（假设p 既不是头结点也不是尾结点），并分析时间复杂度。\n代码片段如下：","c":"// ① prev->next != p && prev->next != NULL\n// ② prev->next = s\n// ③ head == NULL || p == NULL || s == NULL\n// ④ prev->next == p\n\nvoid insertBefore(Node* head, Node* p, Node* s) {\n    if (______) return;\n    Node* prev = head;\n    while (______) {\n        prev = prev->next;\n    }\n    if (______) {\n        s->next = p;\n        ______;\n    }\n}","ck":"blank","cn":"原卷第 2、3 页；①②③④ 为原卷给出的待排片段，函数体中 4 个空为原卷的 ______"},"2024.0.2":{"k":"c","t":["归并","头插法逆置","指针操作顺序","复杂度分析"],"p":"两路归并 + 头插构造非递增表，比较两表当前结点大小","s":"合并两个非递减的链表为一个非递增链表，以下是部分代码，请补全代码使其正确实现功能，假设链表的长度分别为n 和m，分析这段代码的时间复杂度。","c":"typedef struct Node {\n    int data;\n    struct Node* next;\n} Node;\nNode* mergeAndReverse(Node* La, Node* Lb) {\n    Node* Lc = NULL;\n    //非递增表的头指针\n    Node* hc = NULL;\n    //临时指针，用于构建链表\n    while (______) {\n        Node* p = NULL;\n        if (______) {\n            p = La;\n            La = La->next;\n        } else {\n            p = Lb;\n            Lb = Lb->next;\n        }\n        p->next = Lc;\n        Lc = p;\n    }\n    while (La != NULL) {\n        Node* p = La;\n        La = La->next;\n        p->next = Lc;\n        Lc = p;\n    }\n    while (Lb != NULL) {\n        Node* p = Lb;\n        Lb = Lb->next;\n        p->next = Lc;\n        Lc = p;\n    }\n    return Lc;\n}","ck":"blank","cn":"代码跨原卷第 3、4 页，2 个空为原卷的 ______；注释行按原卷位置保留"},"2024.0.3":{"k":"c","t":["入度表+栈","邻接表存储","复杂度分析"],"p":"入度为 0 者入栈、出栈计数并递减邻接点入度，判有无环","s":"请补全下面拓扑排序算法中的代码，假设顶点数为|V|，边数为|E|，分析这段代码的时间复杂度。","c":"bool Topologicalsort(Graph G) {\n    InitStack(S);\n    for (int i = 0; i < G.vexnum; i++) {\n        if (indegree[i] == 0) {\n            ______;\n            ______;\n        }\n    }\n    int count = 0;\n    while (______) {\n        ______;\n        print[count++] = i;\n        for (p = G.vertices[i].firstarc; ______; p = p->nextarc) {\n            v = p->adjvex;\n            if (!(--indegree[v])) {\n                Push(S, v);\n            }\n        }\n    }\n    if (count < G.vexnum) {\n        return false;\n    } else {\n        return true;\n    }\n}","ck":"blank","cn":"代码跨原卷第 4、5 页，共 5 个空（原卷 ______）"},"2024.0.4":{"k":"c","t":["叶子/结点计数","递归返回值约定"],"p":"后序递归统计叶子结点数：空树返 0，叶子返 1","s":"描述以下递归代码的功能。","c":"int func(TreeNode* root) {\n    if (root == NULL) {\n        return 0;\n    }\n    if (root->left == NULL && root->right == NULL) {\n        return 1;\n    }\n    return func(root->left) + func(root->right);\n}","ck":"full","cn":"原卷第 5 页，全角分号已改为半角"},"2024.3.0":{"k":"c","t":["中序判 BST","递归返回值约定","边界判断","算法思想描述","C 语言实现"],"p":"中序遍历判关键字严格递增（或递归维护上下界）判BST","s":"编写代码及思想，判断一棵树是否为二叉排序树，结构体已给出。","c":"typedef struct BiTNode {\n    int data;\n    // 数据域，存储节点值\n    struct BiTNode* lchild;\n    // 指向左子树的指针\n    struct BiTNode* rchild;\n    // 指向右子树的指针\n} BiTNode, *BiTree;","ck":"struct","cn":"原卷第 7 页给出结点定义；原卷注释单独成行、语句用全角分号，此处保持原行结构照抄"},"2024.3.1":{"k":"c","t":["邻接表存储","DFS","访问标记数组","递归返回值约定","算法思想描述","C 语言实现"],"p":"DFS从i出发带深度计数，走到j且深度恰为k即存在","s":"编写代码及思想，判断在无向图中是否存在从顶点i到顶点j的长度为k的路径（使用邻接表示图）。","c":"","ck":"none","cn":"原卷第 7 页只有文字要求，邻接表的定义未给出"},"2024.3.2":{"k":"c","t":["层序遍历","叶子/结点计数","边界判断","算法思想描述","C 语言实现"],"p":"层序遍历逐层统计结点数，累加 Σ层号×该层结点数","s":"编写代码及思想，计算二叉树的繁杂度（即每一层的结点数乘以该层的层数）。","c":"","ck":"none","cn":"原卷第 7 页只有文字要求，未给出结点定义"},"2025.0.0":{"k":"c","t":["复杂度分析","空间/时间代价"],"p":"汉诺塔递归 T(n)=2T(n−1)+1，解得 O(2ⁿ)，需列递推式","s":"求以下代码的时间复杂度，并分析原因。","c":"void move(char a, char b, int n) {\n    printf(\"将第%d个盘子从%c移动到%c\", n, a, b);\n    printf(\"%s\\n\", buffer);\n}\nvoid F(int n, char a, char b, char c) {\n    if (n == 1) {\n        move(a, c, n);\n    } else {\n        F(n - 1, a, c, b);\n        move(a, c, n);\n        F(n - 1, b, a, c);\n    }\n}","ck":"full","cn":"原卷第 2 页；`buffer` 与 `printf(\"%s\\n\", …)` 原卷如此，未改动"},"2025.0.1":{"k":"c","t":["四指针交换","双向链表","指针操作顺序","边界判断"],"p":"交换 p 与其前驱 q：先保存 p 的后继再按序回填四条指针","s":"下列代码交换双向链表中p 结点和p 结点的前驱。请填写完整代码。\n双向链表存储结构：","c":"struct DLinkNode{\n    ElementType data;\n    Position prior; //Front pointer\n    Position next; //Rear pointer\n};\nstruct DLinkNode;\nvoid SwapWithPrevious(DLinkNode* p) {\n    DLinkNode* q = p->prior;\n    ____①;\n    p->next = q;\n    q->prior = p;\n    ____②;\n    p->prior->next = p;\n    q->next->prior = q;\n}","ck":"blank","cn":"代码跨原卷第 2、3 页，2 个竖排空位已标为 ① ②"},"2025.0.2":{"k":"c","t":["链式队列","循环单链表","边界判断","指针操作顺序"],"p":"rear 指针入队接尾、出队取 rear->next，注意空队与单元素","s":"下列代码实现循环单链表队列的出队入队，请填写完整代码。队列的链式存储类型可以描述为：","c":"typedef struct LinkNode {\n    ElemType data;\n    struct LinkNode *next;\n} LinkNode;\ntypedef struct {\n    LinkNode *rear;\n} LinkQueue;\nvoid EnQueue(LinkQueue *Q, LinkNode *p) {\n    if (Q->rear == NULL) {\n        Q->rear = p;\n        p->next = p;\n    } else {\n        ____①;\n        Q->rear->next = p;\n        Q->rear = p;\n    }\n}\nLinkNode* DeQueue(LinkQueue *Q) {\n    LinkNode *p;\n    if (Q->rear == NULL) {\n        return NULL;\n    }\n    p = Q->rear->next;\n    if (Q->rear == p) {\n        ____②;\n    } else {\n        Q->rear->next = p->next;\n    }\n    return p;\n}","ck":"blank","cn":"代码跨原卷第 3、4 页，2 个竖排空位已标为 ① ②；形参换行已理顺"},"2025.0.3":{"k":"c","t":["带头结点/伪头指针","选择排序(链表版)","原地 O(1)","指针操作顺序","边界判断"],"p":"每轮从 p 起扫出最小结点并交换数据域，再推进 p","s":"下列代码实现带头结点的单链表的简单选择排序，请填写完整代码。单链表存储结构：","c":"typedef struct LNode {\n    ElemType data;\n    struct LNode* next;\n} LNode, *LinkList;\nvoid SelectionSort(LinkList &L) {\n    LNode *p, *q, *min;\n    ____①;\n    while (p != NULL) {\n        min = p;\n        q = p->next;\n        while (q != NULL) {\n            if (q->data < min->data) {\n                min = q;\n            }\n            q = q->next;\n        }\n        if (____②) {\n            ElemType temp = p->data;\n            p->data = min->data;\n            min->data = temp;\n        }\n        ____③;\n    }\n}","ck":"blank","cn":"代码跨原卷第 4、5 页，3 个竖排空位已标为 ① ② ③"},"2025.1.0":{"k":"c","t":["复杂度分析","空间/时间代价"],"p":"递归冒泡每趟比较 n−i 次，总计约 n²/2 次，O(n²)","s":"分析这段代码在给定输入 a[]={5,4,3,2,1} 的时间复杂度","c":"void F(int a[], int i, int n) {\n    if (i >= n - 1) {\n        return;\n    }\n    for (int j = i; j < n - 1; j++) {\n        if (a[j] > a[j + 1]) {\n            int temp = a[j];\n            a[j] = a[j + 1];\n            a[j + 1] = temp;\n        }\n    }\n    F(a, i + 1, n);\n}","ck":"full","cn":"代码来自原卷第 5 页；提取文本中 F 的右花括号被下一题顶掉，已按原意补回"},"2025.3.0":{"k":"c","t":["快慢指针","边界判断","返回值约定","算法思想描述","C 语言实现"],"p":"快指针先走k步，再同步后移，快指针到尾即倒数第k个","s":"给定一个单链表，找到倒数第k个元素。如果找到该元素，打印该元素的值并返回1；否则返回0。\n(1)描述算法的基本设计思想；\n(2)根据设计思想，采用C语言描述算法。\n结点定义如下：","c":"typedef struct node {\n    int data;\n    struct node *next;\n}LNode,*LinkList;","ck":"struct","cn":"原卷第 9 页给出结点定义（题干“结点定义如下”与代码分处页眉两侧），照抄"},"2025.3.1":{"k":"c","t":["递归后序","树高/最长路径","边界判断","算法思想描述","C 语言实现"],"p":"后序递归取左右子树更长者，借路径数组打印最长路径","s":"给定一棵二叉树，输出从根结点到叶子结点的最长路径，打印路径的结点值，并输出该路径的长度。\n(1)描述算法的基本设计思想；\n(2)根据设计思想，采用C语言描述算法。二叉树的链式存储结构描述如下：","c":"typedef struct BiTNode {\n    ElemType data;\n    struct BiTNode *lchild, *rchild;\n} BiTNode, *BiTree;","ck":"struct","cn":"原卷第 9 页给出链式存储结构定义，照抄"},"2025.3.2":{"k":"c","t":["邻接表存储","DFS","访问标记数组","路径回溯","算法思想描述","C 语言实现"],"p":"DFS记录路径，搜u→k、k→v两段并拼接输出，无解输出-1","s":"给定一个邻接表表示的连通图，输出从顶点u到顶点v并经过顶点k的一条路径。如果不存在这样的路径，输出-1。\n(1)描述算法的基本设计思想；\n(2)根据设计思想，采用C语言描述算法。邻接表存储结构定义如下：","c":"#define MaxVertexNum 100\ntypedef char InfoType; //附加信息类型\ntypedef int VertexType; //顶点数据类型\ntypedef struct ArcNode{\n    int adjvex;\n    //该弧所指向的顶点位置\n    struct ArcNode *next;//下个结点\n    //InfoType info;\n    //当前结点（弧）的信息\n}ArcNode;\ntypedef struct VNode{\n    VertexType data;//顶点信息\n    ArcNode *first;//指向第一个依附于该顶点弧的指针\n}VNode,AdjList[MAX_VERTEX_NUM];\ntypedef struct {\n    AdjList vertices;\n    int vexnum,arcnum;//图的当前顶点数和弧数\n}ALGraph;","ck":"struct","cn":"原卷第 9-10 页给出邻接表定义，代码跨页（页眉页脚已删除）；原卷 #define 写 MaxVertexNum、函数中写 MAX_VERTEX_NUM，大小写不一致，照抄"},"2012.0.0":{"k":"p","m":"背概念"},"2012.1.0":{"k":"p","m":"复杂度速判"},"2013.0.0":{"k":"p","m":"背概念"},"2013.0.1":{"k":"p","m":"复杂度速判"},"2013.1.1":{"k":"p","m":"复杂度速判"},"2014.0.0":{"k":"p","m":"复杂度速判"},"2014.0.1":{"k":"p","m":"背概念"},"2014.1.4":{"k":"p","m":"复杂度速判"},"2015.0.0":{"k":"p","m":"复杂度速判"},"2016.0.0":{"k":"p","m":"复杂度速判"},"2017.0.0":{"k":"p","m":"复杂度速判"},"2018.0.0":{"k":"p","m":"复杂度速判"},"2020.0.0":{"k":"p","m":"复杂度速判"},"2020.1.0":{"k":"p","m":"复杂度速判"},"2020.1.13":{"k":"p","m":"复杂度速判"},"2020.2.2":{"k":"p","m":"复杂度速判"},"2021.0.0":{"k":"p","m":"复杂度速判"},"2021.1.8":{"k":"p","m":"复杂度速判"},"2022.0.0":{"k":"p","m":"背概念"},"2022.1.8":{"k":"p","m":"复杂度速判"},"2012.0.1":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2012.0.2":{"k":"p","m":"背概念"},"2012.0.3":{"k":"p","m":"指针语句与链表操作"},"2012.1.1":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2013.0.2":{"k":"p","m":"背概念"},"2013.0.3":{"k":"p","m":"指针语句与链表操作"},"2013.0.4":{"k":"p","m":"背概念"},"2013.2.0":{"k":"p","m":"指针语句与链表操作"},"2014.0.3":{"k":"p","m":"背概念"},"2014.0.5":{"k":"p","m":"指针语句与链表操作"},"2014.0.6":{"k":"p","m":"指针语句与链表操作"},"2014.0.7":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2014.2.0":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2015.0.1":{"k":"p","m":"背概念"},"2015.0.2":{"k":"p","m":"背概念"},"2015.0.6":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2015.0.7":{"k":"p","m":"背概念"},"2015.1.5":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2016.0.1":{"k":"p","m":"背概念"},"2016.0.2":{"k":"p","m":"背概念"},"2016.0.6":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2016.0.7":{"k":"p","m":"背概念"},"2016.0.18":{"k":"p","m":"指针语句与链表操作"},"2017.0.1":{"k":"p","m":"背概念"},"2017.0.11":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2017.1.4":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2018.0.1":{"k":"p","m":"顺序表移动次数与复杂度结论"},"2019.0.0":{"k":"p","m":"指针语句与链表操作"},"2019.1.13":{"k":"p","m":"指针语句与链表操作"},"2020.0.1":{"k":"p","m":"指针语句与链表操作"},"2012.0.4":{"k":"p","m":"背概念"},"2012.0.5":{"k":"p","m":"模拟栈操作"},"2012.0.6":{"k":"p","m":"队列指针公式"},"2012.0.7":{"k":"p","m":"串与广义表运算"},"2012.0.8":{"k":"p","m":"数组地址计算"},"2012.0.9":{"k":"p","m":"串与广义表运算"},"2012.1.2":{"k":"p","m":"模拟栈操作"},"2012.1.3":{"k":"p","m":"队列指针公式"},"2012.1.4":{"k":"p","m":"串与广义表运算"},"2012.1.5":{"k":"p","m":"数组地址计算"},"2012.1.6":{"k":"p","m":"数组地址计算"},"2013.0.5":{"k":"p","m":"背概念"},"2013.0.6":{"k":"p","m":"背概念"},"2013.0.7":{"k":"p","m":"队列指针公式"},"2013.0.8":{"k":"p","m":"数组地址计算"},"2013.1.2":{"k":"p","m":"模拟栈操作"},"2013.1.3":{"k":"p","m":"串与广义表运算"},"2014.0.2":{"k":"p","m":"模拟栈操作"},"2014.0.4":{"k":"p","m":"队列指针公式"},"2014.0.8":{"k":"p","m":"数组地址计算"},"2014.1.0":{"k":"p","m":"队列指针公式"},"2014.1.1":{"k":"p","m":"模拟栈操作"},"2014.1.2":{"k":"p","m":"串与广义表运算"},"2014.1.6":{"k":"p","m":"串与广义表运算"},"2014.1.7":{"k":"p","m":"数组地址计算"},"2014.1.11":{"k":"p","m":"串与广义表运算"},"2015.0.3":{"k":"p","m":"背概念"},"2015.0.4":{"k":"p","m":"模拟栈操作"},"2015.0.5":{"k":"p","m":"表达式转换与求值"},"2015.0.8":{"k":"p","m":"数组地址计算"},"2015.1.0":{"k":"p","m":"队列指针公式"},"2015.1.1":{"k":"p","m":"模拟栈操作"},"2016.0.3":{"k":"p","m":"表达式转换与求值"},"2016.0.4":{"k":"p","m":"模拟栈操作"},"2016.0.5":{"k":"p","m":"背概念"},"2016.0.8":{"k":"p","m":"队列指针公式"},"2016.0.9":{"k":"p","m":"数组地址计算"},"2016.1.2":{"k":"p","m":"模拟栈操作"},"2016.1.3":{"k":"p","m":"背概念"},"2017.0.2":{"k":"p","m":"模拟栈操作"},"2017.0.3":{"k":"p","m":"队列指针公式"},"2017.0.4":{"k":"p","m":"背概念"},"2017.0.5":{"k":"p","m":"数组地址计算"},"2017.0.17":{"k":"p","m":"队列指针公式"},"2017.1.1":{"k":"p","m":"模拟栈操作"},"2018.0.2":{"k":"p","m":"队列指针公式"},"2018.0.3":{"k":"p","m":"背概念"},"2018.0.4":{"k":"p","m":"模拟栈操作"},"2018.0.5":{"k":"p","m":"模拟栈操作"},"2018.0.9":{"k":"p","m":"数组地址计算"},"2018.1.3":{"k":"p","m":"队列指针公式"},"2018.1.8":{"k":"p","m":"串与广义表运算"},"2019.0.2":{"k":"p","m":"数组地址计算"},"2019.0.3":{"k":"p","m":"模拟栈操作"},"2019.0.7":{"k":"p","m":"背概念"},"2019.0.8":{"k":"p","m":"队列指针公式"},"2019.1.0":{"k":"p","m":"表达式转换与求值"},"2019.1.2":{"k":"p","m":"模拟栈操作"},"2019.1.4":{"k":"p","m":"模拟栈操作"},"2019.1.5":{"k":"p","m":"串与广义表运算"},"2019.2.2":{"k":"p","m":"模拟栈操作"},"2020.0.2":{"k":"p","m":"背概念"},"2020.0.3":{"k":"p","m":"队列指针公式"},"2020.1.1":{"k":"p","m":"表达式转换与求值"},"2020.1.2":{"k":"p","m":"模拟栈操作"},"2020.1.3":{"k":"p","m":"数组地址计算"},"2020.1.12":{"k":"p","m":"数组地址计算"},"2021.0.2":{"k":"p","m":"模拟栈操作"},"2021.0.3":{"k":"p","m":"背概念"},"2021.1.1":{"k":"p","m":"模拟栈操作"},"2021.1.2":{"k":"p","m":"串与广义表运算"},"2021.1.9":{"k":"p","m":"表达式转换与求值"},"2022.0.1":{"k":"p","m":"模拟栈操作"},"2022.0.2":{"k":"p","m":"队列指针公式"},"2022.0.3":{"k":"p","m":"表达式转换与求值"},"2022.0.8":{"k":"p","m":"数组地址计算"},"2022.1.1":{"k":"p","m":"模拟栈操作"},"2022.1.2":{"k":"p","m":"串与广义表运算"},"2022.1.9":{"k":"p","m":"表达式转换与求值"},"2023.1.0":{"k":"p","m":"模拟栈操作"},"2023.1.1":{"k":"p","m":"表达式转换与求值"},"2023.1.2":{"k":"p","m":"队列指针公式"},"2023.1.3":{"k":"p","m":"数组地址计算"},"2024.1.0":{"k":"p","m":"队列指针公式"},"2024.1.1":{"k":"p","m":"表达式转换与求值"},"2024.1.2":{"k":"p","m":"串与广义表运算"},"2024.1.5":{"k":"p","m":"数组地址计算"},"2025.1.1":{"k":"p","m":"模拟栈操作"},"2025.1.2":{"k":"p","m":"数组地址计算"},"2025.1.4":{"k":"p","m":"表达式转换与求值"},"2025.1.6":{"k":"p","m":"串与广义表运算"},"2025.1.7":{"k":"p","m":"串与广义表运算"},"2012.0.10":{"k":"p","m":"背公式：树与二叉树的性质"},"2012.0.11":{"k":"p","m":"背概念"},"2012.1.7":{"k":"p","m":"背公式：树与二叉树的性质"},"2012.1.8":{"k":"p","m":"背公式：树与二叉树的性质"},"2012.1.9":{"k":"p","m":"背公式：树与二叉树的性质"},"2012.2.1":{"k":"p","m":"遍历互推"},"2012.3.1":{"k":"p","m":"哈夫曼树构造+编码"},"2013.0.9":{"k":"p","m":"背公式：树与二叉树的性质"},"2013.0.10":{"k":"p","m":"画树：BST/AVL"},"2013.0.11":{"k":"p","m":"背公式：树与二叉树的性质"},"2013.0.12":{"k":"p","m":"背公式：树与二叉树的性质"},"2013.0.13":{"k":"p","m":"哈夫曼树构造+编码"},"2013.1.4":{"k":"p","m":"遍历互推"},"2013.1.5":{"k":"p","m":"背公式：树与二叉树的性质"},"2013.1.6":{"k":"p","m":"表达式转换与求值"},"2013.1.7":{"k":"p","m":"背公式：树与二叉树的性质"},"2013.1.8":{"k":"p","m":"背公式：树与二叉树的性质"},"2013.1.14":{"k":"p","m":"哈夫曼树构造+编码"},"2013.2.1":{"k":"p","m":"树/森林与二叉树转换"},"2014.0.9":{"k":"p","m":"背公式：树与二叉树的性质"},"2014.0.10":{"k":"p","m":"背公式：树与二叉树的性质"},"2014.1.3":{"k":"p","m":"背公式：树与二叉树的性质"},"2014.1.5":{"k":"p","m":"表达式转换与求值"},"2014.1.8":{"k":"p","m":"背公式：树与二叉树的性质"},"2014.1.9":{"k":"p","m":"遍历互推"},"2014.2.1":{"k":"p","m":"树/森林与二叉树转换"},"2014.2.7":{"k":"p","m":"哈夫曼树构造+编码"},"2015.0.9":{"k":"p","m":"背公式：树与二叉树的性质"},"2015.0.10":{"k":"p","m":"遍历互推"},"2015.0.15":{"k":"p","m":"哈夫曼树构造+编码"},"2015.1.2":{"k":"p","m":"背公式：树与二叉树的性质"},"2015.1.3":{"k":"p","m":"背公式：树与二叉树的性质"},"2015.1.4":{"k":"p","m":"表达式转换与求值"},"2015.1.6":{"k":"p","m":"背公式：树与二叉树的性质"},"2015.1.8":{"k":"p","m":"遍历互推"},"2015.1.10":{"k":"p","m":"哈夫曼树构造+编码"},"2015.2.0":{"k":"p","m":"树/森林与二叉树转换"},"2015.2.2":{"k":"p","m":"哈夫曼树构造+编码"},"2016.0.10":{"k":"p","m":"背公式：树与二叉树的性质"},"2016.0.11":{"k":"p","m":"背概念"},"2016.1.4":{"k":"p","m":"串与广义表运算"},"2016.1.5":{"k":"p","m":"背公式：树与二叉树的性质"},"2016.1.6":{"k":"p","m":"背公式：树与二叉树的性质"},"2016.1.8":{"k":"p","m":"哈夫曼树构造+编码"},"2016.1.10":{"k":"p","m":"遍历互推"},"2016.2.0":{"k":"p","m":"树/森林与二叉树转换"},"2016.2.1":{"k":"p","m":"遍历互推"},"2017.0.6":{"k":"p","m":"背公式：树与二叉树的性质"},"2017.0.7":{"k":"p","m":"背公式：树与二叉树的性质"},"2017.0.8":{"k":"p","m":"背概念"},"2017.0.13":{"k":"p","m":"背公式：树与二叉树的性质"},"2017.1.2":{"k":"p","m":"背公式：树与二叉树的性质"},"2017.1.3":{"k":"p","m":"遍历互推"},"2017.1.6":{"k":"p","m":"背公式：树与二叉树的性质"},"2017.1.7":{"k":"p","m":"背公式：树与二叉树的性质"},"2017.1.8":{"k":"p","m":"表达式转换与求值"},"2017.2.0":{"k":"p","m":"树/森林与二叉树转换"},"2017.2.1":{"k":"p","m":"哈夫曼树构造+编码"},"2018.0.6":{"k":"p","m":"背概念"},"2018.0.7":{"k":"p","m":"背公式：树与二叉树的性质"},"2018.0.8":{"k":"p","m":"背公式：树与二叉树的性质"},"2018.0.12":{"k":"p","m":"背概念"},"2018.1.5":{"k":"p","m":"表达式转换与求值"},"2018.1.9":{"k":"p","m":"背公式：树与二叉树的性质"},"2018.2.0":{"k":"p","m":"遍历互推"},"2019.0.1":{"k":"p","m":"背公式：树与二叉树的性质"},"2019.0.4":{"k":"p","m":"哈夫曼树构造+编码"},"2019.0.5":{"k":"p","m":"背公式：树与二叉树的性质"},"2019.1.1":{"k":"p","m":"背公式：树与二叉树的性质"},"2019.2.4":{"k":"p","m":"遍历互推"},"2020.0.4":{"k":"p","m":"背公式：树与二叉树的性质"},"2020.0.6":{"k":"p","m":"线索二叉树"},"2020.0.7":{"k":"p","m":"哈夫曼树构造+编码"},"2020.1.4":{"k":"p","m":"画树：BST/AVL"},"2020.1.5":{"k":"p","m":"树/森林与二叉树转换"},"2020.1.6":{"k":"p","m":"背公式：树与二叉树的性质"},"2020.2.1":{"k":"p","m":"线索二叉树"},"2021.0.4":{"k":"p","m":"背公式：树与二叉树的性质"},"2021.0.5":{"k":"p","m":"线索二叉树"},"2021.0.7":{"k":"p","m":"哈夫曼树构造+编码"},"2021.1.3":{"k":"p","m":"背公式：树与二叉树的性质"},"2021.1.4":{"k":"p","m":"背公式：树与二叉树的性质"},"2021.2.3":{"k":"p","m":"遍历互推"},"2021.2.4":{"k":"p","m":"哈夫曼树构造+编码"},"2022.0.4":{"k":"p","m":"背概念"},"2022.0.5":{"k":"p","m":"线索二叉树"},"2022.0.7":{"k":"p","m":"哈夫曼树构造+编码"},"2022.1.4":{"k":"p","m":"背公式：树与二叉树的性质"},"2022.2.5":{"k":"p","m":"哈夫曼树构造+编码"},"2023.1.4":{"k":"p","m":"背公式：树与二叉树的性质"},"2023.1.9":{"k":"p","m":"背公式：树与二叉树的性质"},"2023.2.1":{"k":"p","m":"画树：BST/AVL"},"2023.2.3":{"k":"p","m":"树/森林与二叉树转换"},"2023.2.5":{"k":"p","m":"哈夫曼树构造+编码"},"2024.1.3":{"k":"p","m":"哈夫曼树构造+编码"},"2024.1.6":{"k":"p","m":"树/森林与二叉树转换"},"2024.1.7":{"k":"p","m":"树/森林与二叉树转换"},"2024.1.8":{"k":"p","m":"背公式：树与二叉树的性质"},"2024.2.2":{"k":"p","m":"遍历互推"},"2024.2.4":{"k":"p","m":"哈夫曼树构造+编码"},"2025.1.3":{"k":"p","m":"哈夫曼树构造+编码"},"2025.1.8":{"k":"p","m":"背公式：树与二叉树的性质"},"2025.2.0":{"k":"p","m":"画树：BST/AVL"},"2025.2.2":{"k":"p","m":"哈夫曼树构造+编码"},"2012.0.12":{"k":"p","m":"图的性质与存储计数"},"2012.0.13":{"k":"p","m":"背公式：树与二叉树的性质"},"2012.0.14":{"k":"p","m":"画树：BST/AVL"},"2012.0.15":{"k":"p","m":"画树：BST/AVL"},"2012.0.16":{"k":"p","m":"B树/B+树性质与分裂"},"2012.1.10":{"k":"p","m":"折半查找判定树+ASL"},"2012.1.11":{"k":"p","m":"图的性质与存储计数"},"2012.1.12":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2012.1.14":{"k":"p","m":"画树：BST/AVL"},"2012.2.2":{"k":"p","m":"画树：BST/AVL"},"2012.2.4":{"k":"p","m":"哈希表构造+ASL"},"2012.2.5":{"k":"p","m":"画树：BST/AVL"},"2012.3.0":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2013.0.14":{"k":"p","m":"图的性质与存储计数"},"2013.0.15":{"k":"p","m":"图的性质与存储计数"},"2013.0.16":{"k":"p","m":"折半查找判定树+ASL"},"2013.0.17":{"k":"p","m":"哈希表构造+ASL"},"2013.1.9":{"k":"p","m":"图的性质与存储计数"},"2013.1.10":{"k":"p","m":"折半查找判定树+ASL"},"2013.1.12":{"k":"p","m":"图算法手算：最短路径"},"2013.1.13":{"k":"p","m":"图的性质与存储计数"},"2013.1.15":{"k":"p","m":"B树/B+树性质与分裂"},"2013.1.16":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2013.2.2":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2013.2.3":{"k":"p","m":"图的遍历 DFS/BFS"},"2013.2.4":{"k":"p","m":"画树：BST/AVL"},"2013.2.5":{"k":"p","m":"哈希表构造+ASL"},"2014.0.12":{"k":"p","m":"哈希表构造+ASL"},"2014.0.13":{"k":"p","m":"哈希表构造+ASL"},"2014.0.14":{"k":"p","m":"画树：BST/AVL"},"2014.0.17":{"k":"p","m":"图的性质与存储计数"},"2014.0.18":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2014.0.19":{"k":"p","m":"图的性质与存储计数"},"2014.1.10":{"k":"p","m":"图的性质与存储计数"},"2014.1.12":{"k":"p","m":"折半查找判定树+ASL"},"2014.1.13":{"k":"p","m":"画树：BST/AVL"},"2014.1.14":{"k":"p","m":"图算法手算：最短路径"},"2014.2.2":{"k":"p","m":"画树：BST/AVL"},"2014.2.4":{"k":"p","m":"图的遍历 DFS/BFS"},"2014.2.5":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2014.2.6":{"k":"p","m":"哈希表构造+ASL"},"2015.0.12":{"k":"p","m":"折半查找判定树+ASL"},"2015.0.13":{"k":"p","m":"哈希表构造+ASL"},"2015.0.14":{"k":"p","m":"哈希表构造+ASL"},"2015.0.17":{"k":"p","m":"图的遍历 DFS/BFS"},"2015.0.18":{"k":"p","m":"图的性质与存储计数"},"2015.0.19":{"k":"p","m":"图的性质与存储计数"},"2015.1.7":{"k":"p","m":"画树：BST/AVL"},"2015.1.9":{"k":"p","m":"B树/B+树性质与分裂"},"2015.1.11":{"k":"p","m":"图的遍历 DFS/BFS"},"2015.1.12":{"k":"p","m":"图的性质与存储计数"},"2015.1.13":{"k":"p","m":"图的性质与存储计数"},"2015.1.14":{"k":"p","m":"哈希表构造+ASL"},"2015.2.1":{"k":"p","m":"画树：BST/AVL"},"2015.2.4":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2015.2.6":{"k":"p","m":"哈希表构造+ASL"},"2015.2.7":{"k":"p","m":"图算法手算：最短路径"},"2016.0.12":{"k":"p","m":"图的性质与存储计数"},"2016.0.13":{"k":"p","m":"背概念"},"2016.0.14":{"k":"p","m":"背概念"},"2016.0.15":{"k":"p","m":"图的遍历 DFS/BFS"},"2016.0.16":{"k":"p","m":"折半查找判定树+ASL"},"2016.0.19":{"k":"p","m":"图的遍历 DFS/BFS"},"2016.1.0":{"k":"p","m":"折半查找判定树+ASL"},"2016.1.7":{"k":"p","m":"图的性质与存储计数"},"2016.1.9":{"k":"p","m":"画树：BST/AVL"},"2016.1.11":{"k":"p","m":"折半查找判定树+ASL"},"2016.1.12":{"k":"p","m":"图的性质与存储计数"},"2016.1.13":{"k":"p","m":"折半查找判定树+ASL"},"2016.2.2":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2016.2.3":{"k":"p","m":"图的遍历 DFS/BFS"},"2016.2.5":{"k":"p","m":"图算法手算：最短路径"},"2016.2.6":{"k":"p","m":"哈希表构造+ASL"},"2017.0.9":{"k":"p","m":"图的性质与存储计数"},"2017.0.12":{"k":"p","m":"背概念"},"2017.0.15":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2017.0.18":{"k":"p","m":"图的遍历 DFS/BFS"},"2017.0.19":{"k":"p","m":"图的性质与存储计数"},"2017.1.0":{"k":"p","m":"图的性质与存储计数"},"2017.1.5":{"k":"p","m":"B树/B+树性质与分裂"},"2017.1.9":{"k":"p","m":"图的遍历 DFS/BFS"},"2017.2.2":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2017.2.4":{"k":"p","m":"哈希表构造+ASL"},"2017.2.5":{"k":"p","m":"画树：BST/AVL"},"2018.0.10":{"k":"p","m":"背概念"},"2018.0.11":{"k":"p","m":"图的性质与存储计数"},"2018.0.13":{"k":"p","m":"图的性质与存储计数"},"2018.1.0":{"k":"p","m":"折半查找判定树+ASL"},"2018.1.2":{"k":"p","m":"图的性质与存储计数"},"2018.1.6":{"k":"p","m":"图的性质与存储计数"},"2018.1.7":{"k":"p","m":"画树：BST/AVL"},"2018.2.1":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2018.2.2":{"k":"p","m":"哈希表构造+ASL"},"2018.2.3":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2018.2.5":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2019.0.6":{"k":"p","m":"图的性质与存储计数"},"2019.0.9":{"k":"p","m":"背概念"},"2019.1.3":{"k":"p","m":"图的性质与存储计数"},"2019.1.7":{"k":"p","m":"折半查找判定树+ASL"},"2019.1.8":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2019.1.11":{"k":"p","m":"画树：BST/AVL"},"2019.1.12":{"k":"p","m":"背概念"},"2019.1.14":{"k":"p","m":"折半查找判定树+ASL"},"2019.1.15":{"k":"p","m":"图算法手算：最短路径"},"2019.2.0":{"k":"p","m":"哈希表构造+ASL"},"2019.2.3":{"k":"p","m":"图的遍历 DFS/BFS"},"2020.0.8":{"k":"p","m":"图的性质与存储计数"},"2020.0.9":{"k":"p","m":"图的性质与存储计数"},"2020.0.10":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2020.0.11":{"k":"p","m":"图的性质与存储计数"},"2020.0.12":{"k":"p","m":"折半查找判定树+ASL"},"2020.0.14":{"k":"p","m":"画树：BST/AVL"},"2020.1.7":{"k":"p","m":"图的性质与存储计数"},"2020.1.8":{"k":"p","m":"图的遍历 DFS/BFS"},"2020.1.9":{"k":"p","m":"背概念"},"2020.1.10":{"k":"p","m":"折半查找判定树+ASL"},"2020.1.11":{"k":"p","m":"哈希表构造+ASL"},"2020.1.14":{"k":"p","m":"背概念"},"2020.2.3":{"k":"p","m":"图算法手算：最短路径"},"2020.2.4":{"k":"p","m":"哈希表构造+ASL"},"2021.0.8":{"k":"p","m":"图的性质与存储计数"},"2021.0.9":{"k":"p","m":"图的遍历 DFS/BFS"},"2021.0.10":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2021.0.11":{"k":"p","m":"背概念"},"2021.0.12":{"k":"p","m":"折半查找判定树+ASL"},"2021.0.13":{"k":"p","m":"折半查找判定树+ASL"},"2021.0.14":{"k":"p","m":"B树/B+树性质与分裂"},"2021.1.0":{"k":"p","m":"画树：BST/AVL"},"2021.1.5":{"k":"p","m":"图的性质与存储计数"},"2021.1.6":{"k":"p","m":"折半查找判定树+ASL"},"2021.1.7":{"k":"p","m":"哈希表构造+ASL"},"2021.2.2":{"k":"p","m":"哈希表构造+ASL"},"2021.2.5":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2022.0.9":{"k":"p","m":"图的遍历 DFS/BFS"},"2022.0.11":{"k":"p","m":"图的性质与存储计数"},"2022.0.12":{"k":"p","m":"画树：BST/AVL"},"2022.0.13":{"k":"p","m":"折半查找判定树+ASL"},"2022.0.14":{"k":"p","m":"B树/B+树性质与分裂"},"2022.1.0":{"k":"p","m":"折半查找判定树+ASL"},"2022.1.3":{"k":"p","m":"图的性质与存储计数"},"2022.1.5":{"k":"p","m":"背公式：树与二叉树的性质"},"2022.1.6":{"k":"p","m":"折半查找判定树+ASL"},"2022.1.7":{"k":"p","m":"哈希表构造+ASL"},"2022.2.2":{"k":"p","m":"哈希表构造+ASL"},"2022.2.3":{"k":"p","m":"画树：BST/AVL"},"2022.2.4":{"k":"p","m":"图算法手算：最短路径"},"2023.1.5":{"k":"p","m":"画树：BST/AVL"},"2023.1.6":{"k":"p","m":"折半查找判定树+ASL"},"2023.2.0":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2023.2.2":{"k":"p","m":"图算法手算：最短路径"},"2023.2.4":{"k":"p","m":"哈希表构造+ASL"},"2023.2.6":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2024.1.4":{"k":"p","m":"画树：BST/AVL"},"2024.2.1":{"k":"p","m":"哈希表构造+ASL"},"2024.2.3":{"k":"p","m":"图算法手算：最短路径"},"2024.2.5":{"k":"p","m":"折半查找判定树+ASL"},"2025.1.5":{"k":"p","m":"背公式：树与二叉树的性质"},"2025.2.1":{"k":"p","m":"哈希表构造+ASL"},"2025.2.3":{"k":"p","m":"折半查找判定树+ASL"},"2025.2.4":{"k":"p","m":"图算法手算：Prim/Kruskal"},"2025.2.5":{"k":"p","m":"图算法手算：拓扑/关键路径"},"2012.0.17":{"k":"p","m":"排序各趟手算与算法识别"},"2012.0.18":{"k":"p","m":"排序算法性质速记"},"2012.0.19":{"k":"p","m":"排序算法性质速记"},"2012.1.13":{"k":"p","m":"排序各趟手算与算法识别"},"2012.1.15":{"k":"p","m":"堆的判定与调整"},"2012.2.3":{"k":"p","m":"排序各趟手算与算法识别"},"2013.0.18":{"k":"p","m":"排序算法性质速记"},"2013.0.19":{"k":"p","m":"排序算法性质速记"},"2013.1.11":{"k":"p","m":"堆的判定与调整"},"2013.2.6":{"k":"p","m":"排序各趟手算与算法识别"},"2014.0.11":{"k":"p","m":"排序算法性质速记"},"2014.0.15":{"k":"p","m":"排序算法性质速记"},"2014.0.16":{"k":"p","m":"堆的判定与调整"},"2014.1.15":{"k":"p","m":"堆的判定与调整"},"2014.1.16":{"k":"p","m":"排序算法性质速记"},"2014.2.3":{"k":"p","m":"排序各趟手算与算法识别"},"2015.0.11":{"k":"p","m":"排序算法性质速记"},"2015.0.16":{"k":"p","m":"排序算法性质速记"},"2015.1.15":{"k":"p","m":"排序算法性质速记"},"2015.1.16":{"k":"p","m":"堆的判定与调整"},"2015.2.3":{"k":"p","m":"排序各趟手算与算法识别"},"2015.2.5":{"k":"p","m":"排序各趟手算与算法识别"},"2016.0.17":{"k":"p","m":"排序算法性质速记"},"2016.1.14":{"k":"p","m":"排序算法性质速记"},"2016.2.4":{"k":"p","m":"排序各趟手算与算法识别"},"2017.0.10":{"k":"p","m":"排序算法性质速记"},"2017.0.14":{"k":"p","m":"排序算法性质速记"},"2017.0.16":{"k":"p","m":"排序算法性质速记"},"2017.2.3":{"k":"p","m":"排序各趟手算与算法识别"},"2017.2.6":{"k":"p","m":"排序各趟手算与算法识别"},"2018.0.14":{"k":"p","m":"排序各趟手算与算法识别"},"2018.1.1":{"k":"p","m":"排序算法性质速记"},"2018.1.4":{"k":"p","m":"堆的判定与调整"},"2019.1.6":{"k":"p","m":"排序各趟手算与算法识别"},"2019.1.9":{"k":"p","m":"排序算法性质速记"},"2020.0.5":{"k":"p","m":"堆的判定与调整"},"2020.0.13":{"k":"p","m":"排序算法性质速记"},"2020.2.5":{"k":"p","m":"排序各趟手算与算法识别"},"2021.0.1":{"k":"p","m":"排序算法性质速记"},"2021.0.6":{"k":"p","m":"堆的判定与调整"},"2021.2.6":{"k":"p","m":"排序各趟手算与算法识别"},"2022.0.6":{"k":"p","m":"排序算法性质速记"},"2022.0.10":{"k":"p","m":"排序算法性质速记"},"2022.2.6":{"k":"p","m":"排序各趟手算与算法识别"},"2023.1.7":{"k":"p","m":"排序算法性质速记"},"2023.1.8":{"k":"p","m":"排序算法性质速记"},"2023.2.7":{"k":"p","m":"排序各趟手算与算法识别"},"2024.2.0":{"k":"p","m":"排序各趟手算与算法识别"},"2025.1.9":{"k":"p","m":"堆的判定与调整"}};
+
+/* ---------- 题型 → 简称 ---------- */
+const SECSHORT = s => (s || "")
+  .replace(/^第四大题.*$/, "综合/程序设计")
+  .replace(/、分析题$/, "").replace(/分析题$/, "")
+  .replace("单项选择题", "选择题");
+
+/* ---------- 文本工具 ---------- */
+const escT = s => String(s == null ? "" : s).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+/* 把题干拆行：优先用已有换行；否则在 （1）(2) ①②③ 前断行；选择题的 A. B. C. D. 各自成行；
+   并把要求编号加粗 */
+function stemLines(t) {
+  let s = String(t == null ? "" : t).replace(/\r/g, "");
+  if (s.indexOf("\n") < 0) s = s.replace(/\s*[（(]\s*(\d+)\s*[)）]\s*(?=\S)/g, "\n（$1）").replace(/^\n/, "");
+  const opts = (s.match(/[。？）)]\s*[A-D]\.|[ \t][A-D]\./g) || []).length;
+  if (opts >= 3) s = s.replace(/([。？）)]|[ \t])(?=[A-D]\.)/g, "$1\n");
+  return s.split("\n").map(x => x.trim()).filter(x => x !== "");
+}
+function stemHtml(t) {
+  return stemLines(t).map(function (ln) {
+    const m = /^[（(]\s*(\d+)\s*[)）]\s*([\s\S]*)$/.exec(ln);
+    if (m) return '<div><b class="lead">（' + m[1] + '）</b>' + escT(m[2]) + "</div>";
+    const m2 = /^([①②③④⑤⑥⑦⑧⑨⑩])\s*([\s\S]*)$/.exec(ln);
+    if (m2) return '<div><b class="lead">' + m2[1] + "</b>" + escT(m2[2]) + "</div>";
+    return "<div>" + escT(ln) + "</div>";
+  }).join("");
+}
+/* 取出题干最前面的「（N 分）」 */
+function pullScore(t) {
+  const m = /^[（(]\s*(\d+)\s*分\s*[）)]\s*/.exec(String(t == null ? "" : t));
+  if (m) return { score: m[1] + " 分", rest: String(t).slice(m[0].length) };
+  return { score: "", rest: String(t == null ? "" : t) };
+}
+/* ---------- C 代码高亮（单趟替换，避免二次匹配） ---------- */
+const KWSET = new Set(("void int char float double long short unsigned signed struct typedef union enum static const " +
+  "return if else for while do switch case default break continue goto sizeof extern register volatile inline " +
+  "bool true false NULL malloc free printf scanf getchar putchar EOF").split(" "));
+const TYSET = new Set(("ElemType DataType Status LinkList LinkQueue LinkNode LNode DLinkNode DLinkList BiTree " +
+  "BiTNode BinNode BinTNode TreeNode ListNode Node ArcNode VNode ALGraph Graph Position Type Queue Stack " +
+  "SqList MaxSize MAXSIZE MaxVertexNum VertexType InfoType AdjList Elemtype ElementType").split(" "));
+function codeHtml(src) {
+  const e = String(src == null ? "" : src).replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  // 待填空位：`____①` 形式，以及原卷的 全角（1）–（9） 形式（只匹配全角括号，避免误伤 C 表达式里的 (3)）
+  const re = /(\/\/[^\n]*|\/\*[\s\S]*?\*\/)|("(?:[^"\\\n]|\\.)*"|'(?:[^'\\\n]|\\.)*')|(_{3,}[ \t]*[①②③④⑤⑥⑦⑧⑨⑩]?|[（]\s*[1-9]\s*[）])|(\b\d+\b)|([A-Za-z_][A-Za-z0-9_]*)/g;
+  return e.replace(re, function (m0, cmt, str, blank, num, word) {
+    if (cmt) return '<span class="t-cmt">' + cmt + "</span>";
+    if (str) return '<span class="t-str">' + str + "</span>";
+    if (blank) return '<mark class="blank">' + blank + "</mark>";
+    if (num) return '<span class="t-num">' + num + "</span>";
+    if (word) {
+      if (KWSET.has(word)) return '<span class="t-kw">' + word + "</span>";
+      if (TYSET.has(word)) return '<span class="t-typ">' + word + "</span>";
+      return word;
+    }
+    return m0;
+  });
+}
+
+/* ---------- 把 META 挂到 FLAT ---------- */
+FLAT.forEach(function (x) {
+  const m = META[x.id] || { k: "p", m: "背概念" };
+  x.kind = m.k;
+  if (m.k === "p") {
+    x.method = m.m || "背概念";
+  } else {
+    x.tags = m.t || [];
+    x.points = m.p || "";
+    x.stem = (m.s !== undefined && m.s !== null) ? m.s : x.text;
+    x.code = m.c || "";
+    x.ck = m.ck || "";
+    x.cn = m.cn || "";
+  }
+});
+const CODEQ = FLAT.filter(x => x.kind === "c");
+const PLAINQ = FLAT.filter(x => x.kind === "p");
+
+/* ---------- 方法说明 + 颜色 ---------- */
+const METHOD_DESC = {
+  "背概念": "不动笔，直接回忆定义、特性、优缺点、适用场景。",
+  "背公式：树与二叉树的性质": "n0=n2+1、2^h−1、完全二叉树结点数、森林棵数/边数——套进去就算完。",
+  "顺序表移动次数与复杂度结论": "插入/删除要移几个、平均移动 n/2、复杂度结论。",
+  "复杂度速判": "数循环层数、看变量增长速度，一眼给出 O()。",
+  "数组地址计算": "行/列优先偏移公式，多维数组与压缩矩阵的下标换算。",
+  "模拟栈操作": "手动走一遍入栈出栈，判断合法性、数合法序列个数。",
+  "队列指针公式": "队空/队满/队长公式 + rear、front 到底怎么动。",
+  "表达式转换与求值": "中缀↔后缀互相转，后缀用栈算值；按优先级与结合性逐位处理。",
+  "串与广义表运算": "子串计数、KMP 的 next、广义表 head/tail/长度/深度。",
+  "指针语句与链表操作": "记死插入/删除的语句顺序与链表性质，不用推导。",
+  "遍历互推": "两种遍历定一棵树；先序+中序→后序是固定套路。",
+  "树/森林与二叉树转换": "左孩子右兄弟，一步步搬家、沿右链拆分。",
+  "线索二叉树": "按遍历顺序把空指针改成前驱/后继线索，顺便数空链域。",
+  "画树：BST/AVL": "依次插入把树画出来，失衡就旋转；判定用中序递增与平衡因子。",
+  "哈夫曼树构造+编码": "每次合并最小的两个结点，左小右大；再写编码、算 WPL 与总位数。",
+  "图的性质与存储计数": "度数和=2e、连通最少边数、邻接矩阵/邻接表的空间与对称性。",
+  "图的遍历 DFS/BFS": "按邻接点次序一步步走，写出访问序列与生成树。",
+  "图算法手算：Prim/Kruskal": "每次选最小且不成环的边，必须写出每一步。",
+  "图算法手算：最短路径": "Dijkstra 填表、Floyd 逐次更新矩阵，过程分不能省。",
+  "图算法手算：拓扑/关键路径": "反复摘入度为 0 的点；AOE 正推 ve 取最大、逆推 vl 取最小。",
+  "哈希表构造+ASL": "先算 H(key) 再按探测法落位；成功/失败 ASL 分别数。",
+  "折半查找判定树+ASL": "画出判定树，比较次数=路径长度，ASL 按层统计。",
+  "B树/B+树性质与分裂": "记 m 阶的关键字与子树上下限，插满了就分裂。",
+  "堆的判定与调整": "逐层比父子；建堆从 n/2 号结点起，插入就上浮。",
+  "排序各趟手算与算法识别": "按算法规则写出某趟/各趟结果，或由中间状态反推是哪种排序。",
+  "排序算法性质速记": "背稳定性、时间/空间复杂度、与初始状态的关系。"
+};
+const PALETTE = ["#2f5bea", "#0ea5e9", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899", "#14b8a6",
+  "#6366f1", "#d97706", "#059669", "#7c3aed", "#db2777", "#0891b2"];
+const METHOD_ORDER = (function () {
+  const c = {};
+  PLAINQ.forEach(x => { c[x.method] = (c[x.method] || 0) + 1; });
+  return Object.keys(c).sort((a, b) => c[b] - c[a]);
+})();
+const METHOD_COLOR = {};
+METHOD_ORDER.forEach((m, i) => { METHOD_COLOR[m] = PALETTE[i % PALETTE.length]; });
+const METHOD_COUNT = (function () { const c = {}; PLAINQ.forEach(x => c[x.method] = (c[x.method] || 0) + 1); return c; })();
+
+/* ---------- 知识点分组 ---------- */
+const TAG_GROUPS = [
+  ["链表 · 结构与指针手法", "#0ea5e9", ["带头结点/伪头指针", "快慢指针", "首尾双指针", "三指针", "头插法逆置", "尾插/接链",
+    "前驱定位", "四指针交换", "双向链表", "循环单链表", "链式队列", "边界判断"]],
+  ["树与二叉树", "#2f5bea", ["递归后序", "递归返回值约定", "中序判 BST", "层序遍历", "树高/最长路径", "叶子/结点计数",
+    "平衡因子", "线索化", "孩子兄弟"]],
+  ["图", "#f59e0b", ["邻接表存储", "DFS", "BFS", "访问标记数组", "入度表+栈", "路径回溯", "连通性判定"]],
+  ["栈与队列", "#14b8a6", ["栈模拟", "循环队列/共享空间"]],
+  ["算法技巧", "#8b5cf6", ["复杂度分析", "快速幂/位运算", "二分查找", "原地 O(1)", "动态规划/多源 BFS", "贪心"]],
+  ["排序", "#ec4899", ["选择排序(链表版)", "插入排序", "快速排序划分", "归并", "基数排序", "堆调整", "逆序对统计"]],
+  ["通用套路（大题三问）", "#10b981", ["指针操作顺序", "返回值约定", "算法思想描述", "C 语言实现", "空间/时间代价"]]
+];
+const TAG_COUNT = (function () {
+  const c = {};
+  CODEQ.forEach(q => (q.tags || []).forEach(t => c[t] = (c[t] || 0) + 1));
+  return c;
+})();
+
+/* ================= 代码题视图 ================= */
+let selTags = new Set(), tagMode = "any";
+
+$("#codeTotal").textContent = CODEQ.length + " 道";
+$("#plainTotal").textContent = PLAINQ.length + " 道";
+
+$("#tagIndex").innerHTML = TAG_GROUPS.map(function (g) {
+  const list = g[2].filter(t => TAG_COUNT[t]);
+  if (!list.length) return "";
+  return '<div class="tgroup"><h4><span class="dot" style="background:' + g[1] + '"></span>' + escT(g[0]) +
+    '<span style="font-weight:400;color:var(--ink3)">（' + list.length + ' 个知识点）</span></h4><div>' +
+    list.sort((a, b) => TAG_COUNT[b] - TAG_COUNT[a]).map(t =>
+      '<button class="tagbtn" data-tag="' + escT(t) + '">' + escT(t) + "<i>" + TAG_COUNT[t] + "</i></button>").join("") +
+    "</div></div>";
+}).join("");
+
+$("#tagIndex").addEventListener("click", function (e) {
+  const b = e.target.closest(".tagbtn"); if (!b) return;
+  const t = b.dataset.tag;
+  if (selTags.has(t)) selTags.delete(t); else selTags.add(t);
+  renderCode();
+});
+
+function codeBarHtml(rows) {
+  const tagN = new Set(rows.flatMap(r => r.tags || [])).size;
+  let s = "命中 <b>" + rows.length + "</b> 道代码题　覆盖 " + new Set(rows.map(r => r.year)).size +
+    " 个年份　涉及 " + tagN + " 个知识点";
+  if (selTags.size) s += "　当前标签：<b>" + [...selTags].map(escT).join(tagMode === "any" ? " 或 " : " 且 ") + "</b>";
+  return s;
+}
+
+function renderCode() {
+  document.querySelectorAll("#tagIndex .tagbtn").forEach(b => b.classList.toggle("on", selTags.has(b.dataset.tag)));
+  const rows = CODEQ.filter(function (q) {
+    if (!selTags.size) return true;
+    const t = q.tags || [];
+    return tagMode === "any" ? [...selTags].some(x => t.indexOf(x) >= 0) : [...selTags].every(x => t.indexOf(x) >= 0);
+  }).sort((a, b) => (b.year - a.year) || a.id.localeCompare(b.id));
+
+  $("#codeBar").innerHTML = codeBarHtml(rows);
+  $("#codeFiles").innerHTML = selTags.size
+    ? "已选：<span class='cur'>" + [...selTags].map(escT).join(" ＋ ") + "</span>" +
+      '<button class="btn" id="tagModeBtn" style="padding:4px 10px;font-size:12.3px">' +
+      (tagMode === "any" ? "满足任一标签" : "必须全部满足") + "</button>" +
+      '<button class="btn" id="tagClearBtn" style="padding:4px 10px;font-size:12.3px">清除标签</button>'
+    : '<span style="color:var(--ink3)">未选标签：显示全部 ' + CODEQ.length + ' 道代码题。点上方标签开始筛选。</span>';
+  const mb = $("#tagModeBtn"), cb = $("#tagClearBtn");
+  if (mb) mb.addEventListener("click", function () { tagMode = tagMode === "any" ? "all" : "any"; renderCode(); });
+  if (cb) cb.addEventListener("click", function () { selTags.clear(); renderCode(); });
+
+  if (!rows.length) {
+    $("#codeList").innerHTML = '<div class="empty">没有同时满足这些标签的题目，试试去掉一两个标签 </div>';
+    return;
+  }
+  const byYear = {};
+  rows.forEach(r => (byYear[r.year] = byYear[r.year] || []).push(r));
+  $("#codeList").innerHTML = Object.keys(byYear).sort((a, b) => b - a).map(function (y) {
+    const secs = {};
+    byYear[y].forEach(r => (secs[r.sec] = secs[r.sec] || []).push(r));
+    return '<div class="yearblock"><div class="ytitle"><span class="y">' + y + ' 年</span>' +
+      '<span class="meta">' + byYear[y].length + ' 道代码题</span><span class="tri"></span></div><div class="ybody">' +
+      Object.keys(secs).map(function (sn) {
+        return '<span class="secname">' + escT(SECSHORT(sn)) + "</span>" +
+          secs[sn].map(codeCard).join("");
+      }).join("") + "</div></div>";
+  }).join("");
+}
+
+function codeCard(q) {
+  const sc = pullScore(q.stem !== undefined && q.stem !== "" ? q.stem : q.text);
+  const no = q.id.split(".")[2] * 1 + 1;
+  let h = '<div class="qcard code" id="q-' + q.id + '">';
+  h += '<div class="qhead"><span class="qid">' + q.year + " · " + escT(SECSHORT(q.sec)) + " 第 " + no + " 题</span>" +
+    (sc.score ? '<span class="qtag score">' + escT(sc.score) + "</span>" : "") +
+    '<span class="qtag ch" style="background:' + (CH_COLOR[q.ch] || "#8d99b0") + '1a;color:' + (CH_COLOR[q.ch] || "#8d99b0") + '">' + escT(q.ch) + "</span></div>";
+  if (sc.rest.trim()) h += '<div class="qstem">' + stemHtml(sc.rest) + "</div>";
+  if (q.code) {
+    const ckName = { full: "完整代码", blank: "待补全代码", struct: "类型/结点定义" }[q.ck] || "";
+    h += '<div class="codebox"><div class="codebar"><span class="lang">C</span>' +
+      (ckName ? '<span class="cnote">' + escT(ckName) + "</span>" : "") +
+      '<span class="hint">代码较长时可左右滑动 →</span></div>' +
+      '<pre class="code"><code>' + codeHtml(q.code) + "</code></pre>" +
+      (q.cn ? '<div class="codenote">' + escT(q.cn) + "</div>" : "") + "</div>";
+  } else if (q.cn) {
+    h += '<div class="qpoint">' + escT(q.cn) + "</div>";
+  }
+  if (q.points) h += '<div class="qpoint"><b>考点</b>' + escT(q.points) + "</div>";
+  if ((q.tags || []).length) {
+    h += '<div class="qfoot"><span class="klabel">必备知识</span>' +
+      q.tags.map(t => '<button class="tagbtn sm" data-tag="' + escT(t) + '">' + escT(t) + "</button>").join("") + "</div>";
+  }
+  return h + "</div>";
+}
+
+/* 卡片内的标签也能点（点完跳到顶部筛选区） */
+$("#codeList").addEventListener("click", function (e) {
+  const b = e.target.closest(".tagbtn"); if (!b) return;
+  const t = b.dataset.tag;
+  if (!selTags.has(t)) selTags.add(t);
+  renderCode();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+/* ================= 普通题视图 ================= */
+let selMethod = null, plainQ = "";
+
+(function methodTable() {
+  const mx = Math.max.apply(null, METHOD_ORDER.map(m => METHOD_COUNT[m]));
+  let h = "<thead><tr><th style='text-align:left'>核心方法（点行筛选）</th><th>题数</th><th style='text-align:left'>占比</th>" +
+    "<th style='text-align:left'>这方法怎么用</th></tr></thead><tbody>";
+  METHOD_ORDER.forEach(function (m) {
+    const c = METHOD_COUNT[m];
+    h += '<tr data-m="' + escT(m) + '" style="cursor:pointer"><td class="mname tl">' +
+      '<span class="dot" style="display:inline-block;background:' + METHOD_COLOR[m] + ';margin-right:7px"></span>' + escT(m) +
+      '</td><td class="num">' + c + '</td><td class="mbar-cell"><span class="bar" style="display:inline-block;width:' +
+      Math.max(6, Math.round(c / mx * 120)) + 'px;background:' + METHOD_COLOR[m] + '"></span></td>' +
+      '<td class="mdesc">' + escT(METHOD_DESC[m] || "") + "</td></tr>";
+  });
+  $("#methodTable").innerHTML = h + "</tbody>";
+})();
+
+(function methodMatrix() {
+  const years = [...new Set(PLAINQ.map(x => x.year))].sort((a, b) => a - b);
+  let h = "<thead><tr><th style='text-align:left'>核心方法</th>" + years.map(y => "<th>" + y + "</th>").join("") +
+    "<th>合计</th></tr></thead><tbody>";
+  METHOD_ORDER.forEach(function (m) {
+    const row = years.map(y => PLAINQ.filter(x => x.method === m && x.year === y).length);
+    h += '<tr data-m="' + escT(m) + '" style="cursor:pointer"><td class="tl">' +
+      '<span class="dot" style="display:inline-block;background:' + METHOD_COLOR[m] + ';margin-right:7px"></span>' + escT(m) + "</td>";
+    row.forEach(v => {
+      h += v ? '<td><span style="display:inline-block;min-width:24px;padding:2px 5px;border-radius:6px;font-weight:600;' +
+        "font-size:12.3px;background:" + METHOD_COLOR[m] + "1f;color:" + METHOD_COLOR[m] + '">' + v + "</span></td>"
+        : '<td style="color:#c8d2e4">·</td>';
+    });
+    h += "<td><b>" + row.reduce((a, b) => a + b, 0) + "</b></td></tr>";
+  });
+  $("#methodMatrix").innerHTML = h + "</tbody>";
+})();
+
+function pickMethod(m) {
+  selMethod = (selMethod === m) ? null : m;
+  renderPlain();
+  const el = $("#plainList");
+  if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 70, behavior: "smooth" });
+}
+$("#methodTable").addEventListener("click", e => {
+  const tr = e.target.closest("tr[data-m]"); if (tr) pickMethod(tr.dataset.m);
+});
+$("#methodMatrix").addEventListener("click", e => {
+  const tr = e.target.closest("tr[data-m]"); if (tr) pickMethod(tr.dataset.m);
+});
+$("#pQ").addEventListener("input", function () { clearTimeout(window.__pt); window.__pt = setTimeout(function () { plainQ = $("#pQ").value.trim(); renderPlain(); }, 160); });
+$("#pClear").addEventListener("click", function () {
+  selMethod = null; plainQ = ""; $("#pQ").value = ""; renderPlain();
+});
+
+function renderPlain() {
+  let rows = PLAINQ.filter(function (x) {
+    if (selMethod && x.method !== selMethod) return false;
+    if (plainQ && (x.text || "").toLowerCase().indexOf(plainQ.toLowerCase()) < 0) return false;
+    return true;
+  });
+  const methods = METHOD_ORDER.filter(m => rows.some(x => x.method === m));
+  $("#plainBar").innerHTML = "命中 <b>" + rows.length + "</b> 道题　覆盖 " + methods.length + " 个方法　覆盖 " +
+    new Set(rows.map(r => r.year)).size + " 个年份" +
+    (selMethod ? "　当前方法：<b>" + escT(selMethod) + "</b>（再点一次同一方法可取消）" : "") +
+    (plainQ ? "　搜索：<b>" + escT(plainQ) + "</b>" : "");
+  if (!rows.length) { $("#plainList").innerHTML = '<div class="empty">没有匹配的题目，试试换个关键词 </div>'; return; }
+  $("#plainList").innerHTML = methods.map(function (m) {
+    const list = rows.filter(x => x.method === m).sort((a, b) => (b.year - a.year) || a.id.localeCompare(b.id));
+    const ys = [...new Set(list.map(x => x.year))].sort((a, b) => a - b);
+    return '<div class="mgroup" style="border-left-color:' + METHOD_COLOR[m] + '"><div class="mhead">' +
+      '<span class="dot" style="background:' + METHOD_COLOR[m] + '"></span>' +
+      '<div class="mtitle">' + escT(m) + "<i>" + list.length + " 题</i></div>" +
+      '<span class="myears">' + ys[0] + "–" + ys[ys.length - 1] + " 年</span></div>" +
+      '<div class="mdesc">' + escT(METHOD_DESC[m] || "") + "</div><div class=\"mlist\">" +
+      list.map(function (x) {
+        const sc = pullScore(x.text);
+        const first = stemLines(sc.rest)[0] || "";
+        const head = first.length > 88 ? first.slice(0, 88) + "…" : first;
+        return '<details class="q"><summary><span class="qy">' + x.year + '</span><span class="qs">' + escT(head) +
+          "</span></summary>" +
+          '<div class="qq"><div class="full">' + stemHtml(sc.rest) + "</div>" +
+          '<div class="mi"><span class="tag ch" style="background:' + (CH_COLOR[x.ch] || "#8d99b0") + "1a;color:" +
+          (CH_COLOR[x.ch] || "#8d99b0") + '">' + escT(x.ch) + '</span><span class="tag fine">' + escT(x.fine) +
+          '</span><span class="tag sec">' + escT(SECSHORT(x.sec)) + "</span>" +
+          (sc.score ? '<span class="tag">' + escT(sc.score) + "</span>" : "") + "</div></div></details>";
+      }).join("") + "</div></div>";
+  }).join("");
+}
+
+/* ---------- KPI 补充 + 文案 ---------- */
+(function () {
+  const box = $("#kpis");
+  if (box) box.insertAdjacentHTML("beforeend", [
+    ["代码题", CODEQ.length + " 道"], ["普通题", PLAINQ.length + " 道"]
+  ].map(k => '<div class="kpi"><div class="n">' + k[1] + '</div><div class="l">' + k[0] + "</div></div>").join(""));
+  const small = document.querySelector("h1 small");
+  if (small) small.textContent = "2012–2025 共 14 套真题、511 道小题；另按「代码题 / 普通题」双维度重新分类：" +
+    "代码题给出必备知识点标签，普通题按做题核心方法归类。";
+  const k0 = document.querySelector("#kpis .kpi .n");
+  if (k0 && /^[0-9]{8}$/.test(k0.textContent)) k0.textContent = k0.textContent.slice(0, 4) + "–" + k0.textContent.slice(4);
+  // 「回到顶部」原本关在真题面板里，移到 main 下让新面板也能用（手机端）
+  const tt = document.getElementById("toTop");
+  if (tt) { const mn = document.querySelector("main"); if (mn) mn.appendChild(tt); }
+  const tips = $("#tipsBox");
+  if (tips) tips.insertAdjacentHTML("beforeend", '<div class="mini" style="margin-top:14px"><h4> ' +
+    '怎么用新的「代码题 / 普通题」页</h4><ul>' +
+    "<li><b>代码题</b>：先看顶部「必备知识点清单」，把每个标签点一遍，就能知道<b>代码题一共要你会哪些东西</b>；" +
+    "再按年份成套刷。每题卡片里的代码块可直接对照原卷，待填空位已高亮。</li>" +
+    "<li><b>普通题</b>：先看「核心方法总表」，按方法刷（例如把所有「哈夫曼树构造+编码」的题一次刷完）；" +
+    "「方法 × 年份」矩阵能看出哪些方法年年考。</li>" +
+    "<li>这两个新页面<b>只放题目与分类，不含答案</b>；需要答案请到「真题 + 答案」页。</li></ul></div>");
+})();
+
+renderCode();
+renderPlain();
 
 render();
 </script>
